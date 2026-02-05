@@ -618,9 +618,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const summaryCards = document.querySelectorAll('.summary-card');
     const summaryObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                 setTimeout(() => {
                     entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    entry.target.classList.add('animated');
                     
                     // Animate proficiency bars if present
                     const proficiencyFills = entry.target.querySelectorAll('.proficiency-fill');
@@ -648,9 +649,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const techCategories = document.querySelectorAll('.tech-category');
     const techObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                 setTimeout(() => {
                     entry.target.style.animation = 'slideInUp 0.6s ease forwards';
+                    entry.target.classList.add('animated');
                     
                     // Animate tech items
                     const techItems = entry.target.querySelectorAll('.tech-item');
@@ -726,12 +728,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        
-        .summary-card,
-        .tech-category {
-            opacity: 0;
-            transform: translateY(30px);
         }
         
         .tech-item {

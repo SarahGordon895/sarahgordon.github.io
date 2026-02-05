@@ -2127,6 +2127,8 @@ section {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .summary-card::before {
@@ -2373,6 +2375,8 @@ section {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .tech-category:hover {
