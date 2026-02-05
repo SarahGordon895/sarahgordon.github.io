@@ -532,6 +532,88 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Contact cards interactions
+    const contactCards = document.querySelectorAll('.contact-card');
+    
+    contactCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Add pulse animation to icon
+            const icon = this.querySelector('.contact-card-icon');
+            if (icon) {
+                icon.style.animation = 'pulse 0.6s ease-in-out';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            // Remove pulse animation
+            const icon = this.querySelector('.contact-card-icon');
+            if (icon) {
+                icon.style.animation = '';
+            }
+        });
+        
+        // Add click ripple effect
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('.contact-action-btn') && !e.target.closest('.contact-link')) {
+                const ripple = document.createElement('div');
+                ripple.className = 'contact-ripple';
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(102, 126, 234, 0.3);
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            }
+        });
+    });
+    
+    // Social link cards interactions
+    const socialLinkCards = document.querySelectorAll('.social-link-card');
+    
+    socialLinkCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Add CSS for animations
+    const contactStyle = document.createElement('style');
+    contactStyle.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .contact-ripple {
+            z-index: 1;
+        }
+    `;
+    document.head.appendChild(contactStyle);
+
     // Initialize tooltips or other interactive elements as needed
     console.log('Sarah Gordon Portfolio - Loaded successfully!');
 });
