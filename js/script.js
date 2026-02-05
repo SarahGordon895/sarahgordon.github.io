@@ -614,6 +614,132 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(contactStyle);
 
+    // Skills Summary animations
+    const summaryCards = document.querySelectorAll('.summary-card');
+    const summaryObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    
+                    // Animate proficiency bars if present
+                    const proficiencyFills = entry.target.querySelectorAll('.proficiency-fill');
+                    proficiencyFills.forEach((fill, fillIndex) => {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 100 + (fillIndex * 200));
+                    });
+                }, index * 150);
+                summaryObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    summaryCards.forEach(card => {
+        summaryObserver.observe(card);
+    });
+    
+    // Tech stack animations
+    const techCategories = document.querySelectorAll('.tech-category');
+    const techObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.animation = 'slideInUp 0.6s ease forwards';
+                    
+                    // Animate tech items
+                    const techItems = entry.target.querySelectorAll('.tech-item');
+                    techItems.forEach((item, itemIndex) => {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            item.style.transition = 'all 0.3s ease';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100 + (itemIndex * 50));
+                    });
+                }, index * 100);
+                techObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    techCategories.forEach(category => {
+        techObserver.observe(category);
+    });
+    
+    // Industry tags animation
+    const industryTags = document.querySelectorAll('.industry-tag');
+    const tagsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const tags = entry.target.querySelectorAll('.industry-tag');
+                tags.forEach((tag, index) => {
+                    tag.style.opacity = '0';
+                    tag.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        tag.style.transition = 'all 0.3s ease';
+                        tag.style.opacity = '1';
+                        tag.style.transform = 'scale(1)';
+                    }, index * 100);
+                });
+                tagsObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    const industrySection = document.querySelector('.industry-tags');
+    if (industrySection) {
+        tagsObserver.observe(industrySection);
+    }
+    
+    // Add CSS for new animations
+    const skillsStyle = document.createElement('style');
+    skillsStyle.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .summary-card,
+        .tech-category {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tech-item {
+            transition: all 0.3s ease;
+        }
+    `;
+    document.head.appendChild(skillsStyle);
+
     // Initialize tooltips or other interactive elements as needed
     console.log('Sarah Gordon Portfolio - Loaded successfully!');
 });
