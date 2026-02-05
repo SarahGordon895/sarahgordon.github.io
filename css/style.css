@@ -1568,6 +1568,46 @@ section {
     left: 100%;
 }
 
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form Messages */
+.form-message {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+    animation: slideInUp 0.3s ease;
+}
+
+.form-message.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: 1px solid #28a745;
+}
+
+.form-message.error {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: white;
+    border: 1px solid #dc3545;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Contact Alternatives */
 .contact-alternatives {
     margin-top: 30px;
