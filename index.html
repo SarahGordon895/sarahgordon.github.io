@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="images/profile.png" imagesrcset="images/profile.png">
+    <link rel="preload" as="image" href="images/about-1.jpg" imagesrcset="images/about-1.jpg">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -87,7 +90,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-frame">
-                        <img src="images/profile.png" alt="Sarah Gordon - Full Stack Developer & UI/UX Designer" class="profile-img" loading="lazy" decoding="async">
+                        <img src="images/profile.png" alt="Sarah Gordon - Full Stack Developer & UI/UX Designer" class="profile-img" decoding="async" fetchpriority="high">
                         <div class="image-decoration"></div>
                     </div>
                 </div>

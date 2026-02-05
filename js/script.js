@@ -1,5 +1,50 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Image loading optimization
+    const images = document.querySelectorAll('img');
+    
+    // Add load event listeners to all images
+    images.forEach(img => {
+        // Add loaded class when image loads
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                img.classList.add('loaded');
+            });
+            
+            // Add error handling
+            img.addEventListener('error', function() {
+                img.style.background = '#f0f0f0';
+                img.classList.add('loaded');
+            });
+        }
+    });
+    
+    // Progressive image loading for portfolio
+    const portfolioImages = document.querySelectorAll('.portfolio-img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                // Start loading the image if it has data-src
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+    });
+    
+    // Observe portfolio images for progressive loading
+    portfolioImages.forEach(img => {
+        imageObserver.observe(img);
+    });
+    
     // Loader
     const loader = document.getElementById('loader');
     setTimeout(() => {
