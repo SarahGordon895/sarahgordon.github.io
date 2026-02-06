@@ -368,13 +368,10 @@
                         <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
                         <div class="tech-items">
                             <span class="tech-item">React.js</span>
-                            <span class="tech-item">Vue.js</span>
                             <span class="tech-item">JavaScript ES6+</span>
                             <span class="tech-item">TypeScript</span>
                             <span class="tech-item">HTML5</span>
                             <span class="tech-item">CSS3/SASS</span>
-                            <span class="tech-item">Tailwind CSS</span>
-                            <span class="tech-item">Bootstrap</span>
                         </div>
                     </div>
                     <div class="tech-category">
@@ -382,21 +379,22 @@
                         <div class="tech-items">
                             <span class="tech-item">Laravel</span>
                             <span class="tech-item">PHP</span>
-                            <span class="tech-item">Node.js</span>
-                            <span class="tech-item">Express.js</span>
                             <span class="tech-item">RESTful APIs</span>
-                            <span class="tech-item">GraphQL</span>
-                            <span class="tech-item">Microservices</span>
                         </div>
                     </div>
                     <div class="tech-category">
                         <h4><i class="fas fa-database"></i> Database</h4>
                         <div class="tech-items">
                             <span class="tech-item">MySQL</span>
-                            <span class="tech-item">MongoDB</span>
-                            <span class="tech-item">PostgreSQL</span>
-                            <span class="tech-item">Redis</span>
-                            <span class="tech-item">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-desktop"></i> Server</h4>
+                        <div class="tech-items">
+                            <span class="tech-item">XAMPP</span>
+                            <span class="tech-item">Apache</span>
+                            <span class="tech-item">MySQL Server</span>
+                            <span class="tech-item">PHPMyAdmin</span>
                         </div>
                     </div>
                     <div class="tech-category">
@@ -404,11 +402,6 @@
                         <div class="tech-items">
                             <span class="tech-item">Git</span>
                             <span class="tech-item">Docker</span>
-                            <span class="tech-item">AWS</span>
-                            <span class="tech-item">CI/CD</span>
-                            <span class="tech-item">Agile</span>
-                            <span class="tech-item">Jira</span>
-                            <span class="tech-item">Figma</span>
                         </div>
                     </div>
                 </div>
@@ -489,27 +482,6 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Technical Project Management</h3>
-                    <p>Leading development projects from conception to deployment with agile methodologies and comprehensive project planning.</p>
-                    <div class="service-features">
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Agile & Scrum</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Team Leadership</span>
-                        </div>
-                        <div class="service-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Quality Assurance</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>UI/UX Design</h3>
@@ -579,28 +551,42 @@
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">My Portfolio</h2>
-                <p class="section-subtitle">Recent work I'm proud of</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing excellence in design and development</p>
             </div>
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ui">UI/UX Design</button>
-                <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Projects
+                </button>
+                <button class="filter-btn" data-filter="ui">
+                    <i class="fas fa-laptop-code"></i> Web Design
+                </button>
+                <button class="filter-btn" data-filter="graphic">
+                    <i class="fas fa-palette"></i> Branding
+                </button>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" data-category="ui">
                     <div class="portfolio-image">
-                        <img src="images/project-1.jpg" alt="UI Design Project - Modern interface design by Sarah Gordon" class="portfolio-img" loading="lazy" decoding="async">
+                        <img src="images/project-1.jpg" alt="Modern E-commerce Platform - Full stack development by Sarah Gordon" class="portfolio-img" loading="lazy" decoding="async">
                         <div class="portfolio-overlay">
                             <div class="portfolio-content">
-                                <h3>UI Design Project</h3>
-                                <p>Modern interface design</p>
+                                <div class="portfolio-header">
+                                    <h3>E-Commerce Platform</h3>
+                                    <span class="portfolio-category">Web Development</span>
+                                </div>
+                                <p class="portfolio-description">Modern e-commerce solution with payment integration and inventory management</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
                                 <div class="portfolio-links">
-                                    <a href="images/project-1.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="View UI Design Project">
-                                        <i class="fas fa-eye"></i>
+                                    <a href="images/project-1.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="View E-Commerce Platform">
+                                        <i class="fas fa-expand"></i>
                                     </a>
                                     <a href="#" class="portfolio-link" aria-label="View project details">
-                                        <i class="fas fa-link"></i>
+                                        <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
                             </div>
