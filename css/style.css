@@ -2911,47 +2911,6 @@ overflow: hidden;
   }
 }
 
-/* Small (Tablets Portrait) - 576px and up */
-@media (min-width: 576px) {
-  body {
-    font-size: 15px;
-  }
-  
-  .container {
-    width: 90%;
-    padding: 15px;
-  }
-  
-  .hero-title {
-    font-size: 28px;
-  }
-  
-  .section-title {
-    font-size: 22px;
-  }
-  
-  .hero-image {
-    max-width: 250px;
-  }
-  
-  .services-grid,
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .summary-grid,
-  .tech-stack-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .contact-item {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-}
-
 /* Medium (Tablets Landscape) - 768px and up */
 @media (min-width: 768px) {
   body {
