@@ -390,9 +390,25 @@ body {
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 35px;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero-buttons .btn {
+    min-width: 120px;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.hero-buttons .btn:active {
+    transform: translateY(0);
 }
 
 .btn {
