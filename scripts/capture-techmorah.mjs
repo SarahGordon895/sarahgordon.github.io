@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const png = path.resolve(
   __dirname,
-  "../../_screenshot-cache/TechMorah/public/img/TechMorahSolution.png"
+  "../../TechMorah-site/img/TechMorahSolution.png"
 );
 const preview = pathToFileURL(path.join(__dirname, "preview-branding.html")).href;
 const url = `${preview}?img=${encodeURIComponent(pathToFileURL(png).href)}`;

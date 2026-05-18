@@ -22,7 +22,7 @@ const targets = [
     file: "techmorah.jpg",
     url: `${filePage("preview-branding.html")}?img=${encodeURIComponent(
       pathToFileURL(
-        path.resolve(__dirname, "../../_screenshot-cache/TechMorah/public/img/TechMorahSolution.png")
+        path.resolve(__dirname, "../../TechMorah-site/img/TechMorahSolution.png")
       ).href
     )}`,
     wait: 1200,
