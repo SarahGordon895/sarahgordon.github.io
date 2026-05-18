@@ -1,0 +1,6 @@
+# Apache (XAMPP): static portfolio — correct default document and sensible caching
+DirectoryIndex index.html
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+</IfModule>

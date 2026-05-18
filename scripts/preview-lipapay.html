@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LipaPay Sandbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: Inter, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 720px;
+      width: 100%;
+    }
+    h1 { font-size: 2rem; margin-bottom: 12px; }
+    p { opacity: 0.9; line-height: 1.6; margin-bottom: 24px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .mock {
+      margin-top: 32px;
+      background: #fff;
+      color: #333;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; }
+    .row:last-child { border: none; font-weight: 700; color: #667eea; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>LipaPay Sandbox</h1>
+    <p>Integration lab for mobile-money style payment flows — API testing, callbacks, and staging before production.</p>
+    <div class="tags">
+      <span class="tag">REST APIs</span>
+      <span class="tag">Payments</span>
+      <span class="tag">Sandbox</span>
+    </div>
+    <div class="mock">
+      <div class="row"><span>Initiate payment</span><span>POST /api/v1/pay</span></div>
+      <div class="row"><span>Status</span><span style="color:#22c55e">SUCCESS</span></div>
+      <div class="row"><span>Amount</span><span>TZS 25,000</span></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -45,23 +45,26 @@ document.addEventListener('DOMContentLoaded', function() {
         imageObserver.observe(img);
     });
     
-    // Loader
+    // Loader — respect reduced motion and avoid unnecessary delay
     const loader = document.getElementById('loader');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const loaderDelay = prefersReducedMotion ? 0 : 1100;
     setTimeout(() => {
-        loader.classList.add('hidden');
-    }, 1500);
+        if (loader) loader.classList.add('hidden');
+    }, loaderDelay);
 
     // Navigation Toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        
-        // Animate hamburger menu
+    function syncMobileNavUI() {
+        if (!navToggle || !navMenu) return;
+        const open = navMenu.classList.contains('active');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         const bars = navToggle.querySelectorAll('.bar');
         bars.forEach((bar, index) => {
-            if (navMenu.classList.contains('active')) {
+            if (open) {
                 if (index === 0) bar.style.transform = 'rotate(-45deg) translate(-5px, 6px)';
                 if (index === 1) bar.style.opacity = '0';
                 if (index === 2) bar.style.transform = 'rotate(45deg) translate(-5px, -6px)';
@@ -70,61 +73,72 @@ document.addEventListener('DOMContentLoaded', function() {
                 bar.style.opacity = '1';
             }
         });
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
+        document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function closeMobileNav() {
+        if (!navMenu) return;
+        navMenu.classList.remove('active');
+        syncMobileNavUI();
+    }
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            syncMobileNavUI();
+        });
+
+        navToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                navMenu.classList.toggle('active');
+                syncMobileNavUI();
+            }
+        });
+    }
 
     // Close mobile menu when clicking on a link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            const bars = navToggle.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
-            document.body.style.overflow = '';
+            closeMobileNav();
         });
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-            navMenu.classList.remove('active');
-            const bars = navToggle.querySelectorAll('.bar');
-            bars.forEach(bar => {
-                bar.style.transform = 'none';
-                bar.style.opacity = '1';
-            });
-            document.body.style.overflow = '';
+        if (navToggle && navMenu && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            closeMobileNav();
         }
     });
 
-    // Active navigation link based on scroll position
+    // Active navigation link based on scroll position (includes Home / hero)
     function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section[id]');
         const scrollY = window.pageYOffset;
+        const navLinksAll = document.querySelectorAll('.nav-link');
+        navLinksAll.forEach(l => l.classList.remove('active'));
 
-        sections.forEach(section => {
+        const aboutSection = document.getElementById('about');
+        const homeLink = document.querySelector('.nav-link[href="#home"]');
+        if (aboutSection && scrollY < aboutSection.offsetTop - 110) {
+            if (homeLink) homeLink.classList.add('active');
+            return;
+        }
+
+        document.querySelectorAll('section[id]').forEach(section => {
             const sectionHeight = section.offsetHeight;
             const sectionTop = section.offsetTop - 100;
             const sectionId = section.getAttribute('id');
             const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            
-            if (navLink) {
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    navLink.classList.add('active');
-                } else {
-                    navLink.classList.remove('active');
-                }
+            if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink.classList.add('active');
             }
         });
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
-    updateActiveNavLink(); // Call once on load
+    updateActiveNavLink();
 
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
@@ -132,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+        if (!navbar) return;
         if (scrollTop > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -150,7 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'UI/UX Designer',
         'Web Developer',
         'Technical Project Manager',
-        'Graphic Designer'
+        'Graphic Designer',
+        'Digital Product Builder'
     ];
     
     let skillIndex = 0;
@@ -159,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let typingSpeed = 100;
 
     function typeEffect() {
+        if (!typedTextElement || !cursor) return;
         const currentSkill = skills[skillIndex];
         
         if (isDeleting) {
@@ -184,28 +200,24 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeEffect, typingSpeed);
     }
 
-    typeEffect();
+    if (typedTextElement && cursor) {
+        typeEffect();
+    }
 
-    // Simple skills tabs functionality with debugging
+    // Simple skills tabs functionality (optional tab markup)
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
-    console.log('Tab buttons found:', tabBtns.length);
-    console.log('Tab panes found:', tabPanes.length);
-
     // Set first tab as active on page load
     if (tabBtns.length > 0 && tabPanes.length > 0) {
-        console.log('Initializing first tab');
         tabBtns[0].classList.add('active');
         tabPanes[0].classList.add('active');
         
         // Animate first tab skill bars
         setTimeout(() => {
             const skillBars = tabPanes[0].querySelectorAll('.skill-progress');
-            console.log('Skill bars in first tab:', skillBars.length);
             skillBars.forEach((bar, index) => {
                 const progress = bar.getAttribute('data-progress');
-                console.log('Setting progress for skill:', progress);
                 setTimeout(() => {
                     bar.style.width = progress + '%';
                 }, index * 100);
@@ -216,7 +228,6 @@ document.addEventListener('DOMContentLoaded', function() {
     tabBtns.forEach((btn, index) => {
         btn.addEventListener('click', () => {
             const targetTab = btn.getAttribute('data-tab');
-            console.log('Tab clicked:', targetTab);
             
             // Remove active class from all buttons and panes
             tabBtns.forEach(b => b.classList.remove('active'));
@@ -232,17 +243,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked button and corresponding pane
             btn.classList.add('active');
             const targetPane = document.getElementById(targetTab);
-            console.log('Target pane found:', !!targetPane);
             if (targetPane) {
                 targetPane.classList.add('active');
                 
                 // Animate skill bars in active pane
                 setTimeout(() => {
                     const skillBars = targetPane.querySelectorAll('.skill-progress');
-                    console.log('Skill bars in target pane:', skillBars.length);
                     skillBars.forEach((bar, index) => {
                         const progress = bar.getAttribute('data-progress');
-                        console.log('Animating skill with progress:', progress);
                         setTimeout(() => {
                             bar.style.width = progress + '%';
                         }, index * 100);
@@ -329,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show/hide portfolio items based on filter
             portfolioItems.forEach(item => {
-                const category = item.getAttribute('data-category');
+                const categories = (item.getAttribute('data-category') || '').trim().split(/\s+/);
                 
                 if (filter === 'all') {
                     // Show all items with animation
@@ -338,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         item.style.opacity = '1';
                         item.style.transform = 'translateY(0)';
                     }, 100);
-                } else if (category === filter) {
+                } else if (categories.includes(filter)) {
                     // Show matching items with animation
                     item.style.display = 'block';
                     setTimeout(() => {
@@ -533,14 +541,16 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(stat);
     });
 
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
+    // Parallax effect for hero section (skip when user prefers reduced motion)
+    if (!prefersReducedMotion) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    }
 
     // Add hover effect to service cards
     const serviceCards = document.querySelectorAll('.service-card');
@@ -758,6 +768,118 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(skillsStyle);
 
-    // Initialize tooltips or other interactive elements as needed
-    console.log('Sarah Gordon Portfolio - Loaded successfully!');
+    // Back to top (matches .back-to-top.show in CSS)
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Portfolio lightbox: keep users on the page when expanding images
+    const lightboxStyle = document.createElement('style');
+    lightboxStyle.textContent = `
+        .sg-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.88);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            padding: 24px;
+        }
+        .sg-lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .sg-lightbox img {
+            max-width: min(96vw, 1200px);
+            max-height: 88vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .sg-lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .sg-lightbox-close:hover {
+            background: rgba(255,255,255,0.28);
+        }
+    `;
+    document.head.appendChild(lightboxStyle);
+
+    let lightboxEl = null;
+    function ensureLightbox() {
+        if (lightboxEl) return lightboxEl;
+        lightboxEl = document.createElement('div');
+        lightboxEl.className = 'sg-lightbox';
+        lightboxEl.setAttribute('role', 'dialog');
+        lightboxEl.setAttribute('aria-modal', 'true');
+        lightboxEl.setAttribute('aria-label', 'Image preview');
+        lightboxEl.innerHTML = '<button type="button" class="sg-lightbox-close" aria-label="Close">&times;</button><img src="" alt="">';
+        document.body.appendChild(lightboxEl);
+
+        const img = lightboxEl.querySelector('img');
+        const closeBtn = lightboxEl.querySelector('.sg-lightbox-close');
+
+        function closeLightbox() {
+            lightboxEl.classList.remove('active');
+            document.body.style.overflow = '';
+            img.removeAttribute('src');
+            img.alt = '';
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightboxEl.addEventListener('click', (e) => {
+            if (e.target === lightboxEl) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxEl.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        return lightboxEl;
+    }
+
+    document.querySelectorAll('a.portfolio-lightbox').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            if (!href) return;
+            const root = link.closest('.portfolio-image');
+            const thumb = root ? root.querySelector('.portfolio-img') : null;
+            const box = ensureLightbox();
+            const img = box.querySelector('img');
+            img.src = href;
+            img.alt = thumb ? thumb.getAttribute('alt') || '' : '';
+            box.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
 });
