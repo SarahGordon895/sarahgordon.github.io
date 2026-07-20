@@ -17,10 +17,14 @@ img:not([src]) {
     100% { background-position: -200% 0; }
 }
 
-/* Fade in effect for loaded images */
-img:not(.loaded) {
-    opacity: 0;
+/* Fade-in when JS marks loaded; stay visible if JS is slow/cached */
+img {
+    opacity: 1;
     transition: opacity 0.3s ease-in-out;
+}
+
+img:not(.loaded) {
+    opacity: 1;
 }
 
 img.loaded {
