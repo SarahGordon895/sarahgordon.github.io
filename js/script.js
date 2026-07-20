@@ -161,10 +161,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const cursor = document.querySelector('.cursor');
     const skills = [
         'Full Stack Developer',
+        'Support & Implementation Engineer',
         'UI/UX Designer',
-        'Web Developer',
-        'Technical Project Manager',
         'Graphic Designer',
+        'Technical Project Manager',
+        'Web Developer',
         'Digital Product Builder'
     ];
     
