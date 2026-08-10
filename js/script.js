@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             closeMobileNav();
@@ -402,28 +402,30 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Create mailto link
-            const mailtoLink = `mailto:gordonsarah2404@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-            
-            // Show loading state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
             submitBtn.disabled = true;
-            
-            // Simulate sending (in real implementation, this would send to a server)
-            setTimeout(() => {
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
-                showFormMessage('Thank you for your message! Your email client has been opened to send the email.', 'success');
-                
-                // Reset form
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { Accept: 'application/json' }
+            })
+                .then((res) => {
+                    if (!res.ok) throw new Error('send-failed');
+                    showFormMessage('Thank you. Your enquiry has been received — I typically reply within one business day.', 'success');
+                    contactForm.reset();
+                })
+                .catch(() => {
+                    const mailtoLink = `mailto:gordonsarah2404@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+                    window.location.href = mailtoLink;
+                    showFormMessage('Opening your email client as a fallback. You can also reach me on WhatsApp.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 
