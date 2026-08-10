@@ -93,14 +93,50 @@
     .meta { font-size: 9.5pt; color: #333; }
     .decl { margin-top: 8px; }
     .sign-line { margin-top: 14px; }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      background: #0b1f3a;
+      color: #fff;
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      font-size: 10pt;
+    }
+    .toolbar span { opacity: 0.9; }
+    .toolbar a, .toolbar button {
+      background: #fff;
+      color: #0b1f3a;
+      border: 0;
+      padding: 8px 12px;
+      font-size: 10pt;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @media print {
+      .toolbar { display: none !important; }
+    }
   </style>
 </head>
 <body>
 
+  <div class="toolbar">
+    <span>Sarah George Gordon — Curriculum Vitae</span>
+    <span>
+      <a href="../CvsarahG.pdf" download="Sarah_Gordon_CV_2026.pdf">Download PDF</a>
+      <button type="button" onclick="window.print()">Print / Save as PDF</button>
+    </span>
+  </div>
+
   <h1>Sarah George Gordon</h1>
   <p class="tagline">
-    Senior Full Stack Developer · Support &amp; Implementation Engineer · Acting CIO · Cofounder ·
-    Flutter Mobile Developer · Graphic &amp; UI Designer
+    Full Stack Developer (iMart Group LTD) · Cofounder · Flutter Mobile Developer · Graphic &amp; UI Designer
   </p>
   <p class="contact">
     Dar es Salaam, Tanzania | +255 745 700 923 | <a href="mailto:gordonsarah2404@gmail.com">gordonsarah2404@gmail.com</a><br>
@@ -143,12 +179,14 @@
     Results-oriented technology professional with 4+ years of hands-on delivery across full-stack development, e-commerce,
     enterprise SMS platforms (VLL Backend, SmSver1, VLL-SMS / imartListener Flutter apps), fintech products (LipaPay Portal,
     Airtime, Disbursement, Sandbox), HR leave systems, ISP marketing sites, and school fee tracking. Currently
-    <strong>Support &amp; Implementation Resource Engineer</strong> at Craft Silicon—diagnosing and resolving production issues
-    for bank clients across Mobile/Internet/Agency Banking, Core Banking, APIs, GL/accounting rules, and SQL Server—and
-    <strong>Cofounder</strong> of TechMorah Solution LTD. Previously
+    <strong>Full Stack Developer (full-time)</strong> at <strong>iMart Group LTD</strong>, and
+    <strong>Cofounder</strong> of TechMorah Solution LTD. Completed a
+    <strong>three-month part-time</strong> contract as Support &amp; Implementation Resource Engineer at Craft Silicon
+    (15 May 2026 – 11 August 2026) supporting bank clients across Mobile/Internet/Agency Banking, Core Banking, APIs,
+    GL/accounting rules, and SQL Server. Previously
     <strong>Senior Full Stack Developer and Acting CIO</strong> at Victoria Lush Limited (15 March – 3 June 2026).
     Recently shipped <strong>Active Targets</strong> (live Laravel + Filament e-commerce at activetargets.org),
-    <strong>imartListener</strong> SMS/WhatsApp business desk for iMart Group, and production LipaPay family platforms.
+    <strong>imartListener</strong> SMS/WhatsApp business desk, and production LipaPay family platforms.
     Experienced on Windows Server, IIS, SQL Server, Linux VPS/shared hosting, and banking environments. Known for
     evidence-based, database-first troubleshooting, shipping production-ready systems, documentation for developers/clients/management,
     and <strong>25+ projects</strong> in public portfolio and GitHub.
@@ -159,7 +197,7 @@
     <li>Full-stack: Laravel, Filament, PHP, Blade, REST APIs</li>
     <li>Alternate banking channels: Mobile, Internet, Agency, USSD, merchant, digital lending</li>
     <li>Frontend: React, JavaScript, HTML5, CSS3, responsive UI/UX</li>
-    <li>CBS support &amp; implementation (Craft Silicon bank clients)</li>
+    <li>CBS support &amp; implementation (Craft Silicon — 3-month part-time contract)</li>
     <li>SQL Server / T-SQL: procedures, functions, views, triggers, data fixes</li>
     <li>SQL Profiler, SSRS, GL statements, Trial Balance, custom reports</li>
     <li>Flutter mobile (VLL-SMS / imartListener): SMS &amp; WhatsApp capture, sync, APIs</li>
@@ -176,12 +214,27 @@
 
   <div class="job">
     <div class="job-head">
-      <span>Craft Silicon — Support &amp; Implementation Resource Engineer</span>
-      <span class="dates">15 May 2026 – Present</span>
+      <span>iMart Group LTD — Full Stack Developer (Full-time)</span>
+      <span class="dates">October 2025 – Present</span>
     </div>
     <ul>
-      <li>Provide production support and implementation for Craft Silicon banking solutions serving clients such as Radiance, Maendeleo, and Amana across Core Banking and alternate channels.</li>
-      <li>Investigate client issues including Mobile/Internet Banking failures, loan and savings product problems, GL mapping errors, API faults, accounting-rule mismatches, report discrepancies, and EOD/COB failures.</li>
+      <li>Current full-time role: design, build, integrate, deploy, and support production systems for iMart Group across web, APIs, and mobile.</li>
+      <li>Built and launched <strong>imartListener</strong> (Flutter) + imartPortal + Laravel listenerBackend: SMS/WhatsApp capture on business phones, Inbox sync, reply templates/bulk, social lookup—paired with live SMS portal at sms.imartgroup.co.tz.</li>
+      <li>Built and supported <strong>ELMS</strong> (Employee Leave Management System) at leave.imartgroup.co.tz; HR approval flows, HOD gates, notifications, role-based access.</li>
+      <li>Developed and supported <strong>LipaPay</strong> product family: Portal (portal.lipapay.co.tz), Lipa Airtime (airtime.lipapay.co.tz), Lipa Disbursement (disbursement.lipapay.co.tz), and Sandbox (sandbox.lipapay.co.tz)—collections, airtime wallet/recharge, payouts, developer hub, KYC-to-portal specs, PHPUnit coverage.</li>
+      <li>Managed deployment on Windows Server (XAMPP/local) and Linux/shared hosting via FTPS, GitHub, Composer, and production runbooks.</li>
+      <li>Authored portal-integration-spec.json, handover docs, and deployment guides; ongoing production support and integration alignment.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span>Craft Silicon — Support &amp; Implementation Resource Engineer (Part-time)</span>
+      <span class="dates">15 May 2026 – 11 August 2026 (3-month contract)</span>
+    </div>
+    <ul>
+      <li>Provided part-time production support and implementation for Craft Silicon banking solutions serving clients such as Radiance, Maendeleo, and Amana across Core Banking and alternate channels. Three-month contract ended 11 August 2026.</li>
+      <li>Investigated client issues including Mobile/Internet Banking failures, loan and savings product problems, GL mapping errors, API faults, accounting-rule mismatches, report discrepancies, and EOD/COB failures.</li>
       <li>Follow a structured diagnostic workflow: receive issue → reproduce (UI, Swagger/Postman/curl, SQL Profiler) → trace Frontend → API → stored procedures → functions → views → tables → identify root cause → fix → retest → document.</li>
       <li>Perform database-first investigation in Microsoft SQL Server: procedure logic, JOINs, WHERE clauses, accounting rules, product configuration, GL mappings, transaction history, and TEST vs LIVE configuration comparison.</li>
       <li>Troubleshoot and implement alternate banking channels: Mobile Banking, Internet Banking, Agency Banking, USSD, merchant services, digital lending, OTP/authentication, and SMS/notification services.</li>
@@ -219,21 +272,6 @@
       <li>Delivered full-stack features across Laravel, MySQL, and Blade; coordinated resellers, bulk SMS, templates, and daily production support.</li>
       <li>Deployed and supported across Windows Server and Linux Server; API integrations, bug triage, and stakeholder communication.</li>
       <li>Awarded Certificate of Achievement — Full Stack Developer (April 2026).</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <div class="job-head">
-      <span>iMart Group LTD — Technical Project Support / Full Stack &amp; Implementation</span>
-      <span class="dates">October 2025 – Present</span>
-    </div>
-    <ul>
-      <li>Built and launched <strong>imartListener</strong> (Flutter) + imartPortal + Laravel listenerBackend: SMS/WhatsApp capture on business phones, Inbox sync, reply templates/bulk, social lookup—paired with live SMS portal at sms.imartgroup.co.tz.</li>
-      <li>Built and supported <strong>ELMS</strong> (Employee Leave Management System) at leave.imartgroup.co.tz; HR approval flows, HOD gates, notifications, role-based access.</li>
-      <li>Developed and supported <strong>LipaPay</strong> product family: Portal (portal.lipapay.co.tz), Lipa Airtime (airtime.lipapay.co.tz), Lipa Disbursement (disbursement.lipapay.co.tz), and Sandbox (sandbox.lipapay.co.tz)—collections, airtime wallet/recharge, payouts, developer hub, KYC-to-portal specs, PHPUnit coverage.</li>
-      <li>Managed deployment on Windows Server (XAMPP/local) and Linux/shared hosting via FTPS, GitHub, Composer, and production runbooks.</li>
-      <li>Designed Responsive Library Management System with normalized database, lending workflows, and modern UI during practical training.</li>
-      <li>Authored portal-integration-spec.json, handover docs, and deployment guides; ongoing production support and integration alignment.</li>
     </ul>
   </div>
 
@@ -441,7 +479,7 @@
     </p>
     <p class="sign-line">Signature: ………………………………………………………………</p>
     <p>Name: Sarah George Gordon</p>
-    <p>Date: 20 July 2026</p>
+    <p>Date: 10 August 2026</p>
   </div>
 
 </body>
