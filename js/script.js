@@ -113,31 +113,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Active navigation link based on scroll position (includes Home / hero)
+    // Active navigation link based on scroll position
     function updateActiveNavLink() {
-        const scrollY = window.pageYOffset;
+        const navOffset = (document.querySelector('.navbar')?.offsetHeight || 72) + 16;
+        const scrollY = window.pageYOffset + navOffset;
         const navLinksAll = document.querySelectorAll('.nav-link');
         navLinksAll.forEach(l => l.classList.remove('active'));
 
-        const aboutSection = document.getElementById('about');
-        const homeLink = document.querySelector('.nav-link[href="#home"]');
-        if (aboutSection && scrollY < aboutSection.offsetTop - 110) {
-            if (homeLink) homeLink.classList.add('active');
-            return;
-        }
+        const sections = [
+            document.getElementById('home'),
+            ...document.querySelectorAll('main section[id]')
+        ].filter(Boolean);
 
-        document.querySelectorAll('section[id]').forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLink.classList.add('active');
-            }
+        let current = 'home';
+        sections.forEach((section) => {
+            const top = section.getBoundingClientRect().top + window.pageYOffset;
+            if (scrollY >= top) current = section.id;
         });
+
+        const active = document.querySelector(`.nav-link[href="#${current}"]`);
+        if (active) active.classList.add('active');
     }
 
-    window.addEventListener('scroll', updateActiveNavLink);
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
     updateActiveNavLink();
 
     // Navbar scroll effect
@@ -461,20 +459,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling — use viewport position (offsetTop breaks inside <main>)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+
+            const navHeight = document.querySelector('.navbar')?.offsetHeight || 72;
+            let top = 0;
+            if (href !== '#home' && href !== '#main-content') {
+                top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 8;
             }
+
+            window.scrollTo({
+                top: Math.max(0, top),
+                behavior: 'smooth'
+            });
+            history.pushState(null, '', href);
+            closeMobileNav();
         });
     });
 
