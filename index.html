@@ -19,10 +19,10 @@
     <meta name="twitter:title" content="Sarah Gordon — Full Stack, Support &amp; Implementation, Graphic Design">
     <meta name="twitter:description" content="Full stack development, support &amp; implementation, UI/UX, and graphic design — explore shipped work.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=20260810d">
+    <link rel="stylesheet" href="css/style.css?v=20260810e">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <!-- Preload critical images -->
@@ -130,59 +130,45 @@
     </nav>
 
     <main id="main-content">
-    <!-- Hero Section -->
+    <!-- Hero: one composition — brand, line, CTA, full-bleed portrait -->
     <header class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-eyebrow">Full Stack Developer · Dar es Salaam</p>
-                    <p class="hero-greeting">Hello, I'm</p>
-                    <h1 class="hero-title">Sarah Gordon</h1>
-                    <div class="hero-subtitle">
-                        <span class="typed-text">Full Stack Developer</span>
-                        <span class="cursor">&nbsp;</span>
-                    </div>
-                    <p class="hero-description">
-                        Full Stack Developer at <strong>iMart Group LTD</strong> (full-time). I build Laravel systems, fintech and SMS platforms, and branded sites; deploy to VPS or shared hosting; train teams; and keep products secure and fast in production.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Start a project</a>
-                        <a href="./cv/Sarah_Gordon_CV_2026.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                            <i class="fas fa-eye"></i> View CV
-                        </a>
-                        <a href="./CvsarahG.pdf?v=5" download="Sarah_Gordon_CV_2026.pdf" class="btn btn-outline">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                    </div>
-                    <div class="hero-social">
-                        <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sarah-gordon-0502b335b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/1DD2SMKQrV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://github.com/SarahGordon895" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
+        <div class="hero-panel">
+            <div class="hero-panel-inner">
+                <p class="hero-eyebrow">Full Stack Developer · Dar es Salaam</p>
+                <h1 class="hero-title">
+                    <span class="hero-title-line">Sarah</span>
+                    <span class="hero-title-line">Gordon</span>
+                </h1>
+                <p class="hero-lede">Production systems for payments, SMS, and commerce.</p>
+                <p class="hero-description">
+                    I design, build, deploy, and hand over Laravel and React products — from LipaPay and enterprise SMS to branded client sites.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Discuss a project</a>
+                    <a href="#portfolio" class="btn btn-outline">Selected work</a>
                 </div>
-                <div class="hero-image">
-                    <div class="image-frame">
-                        <img src="images/profile.png" alt="Sarah Gordon — Full Stack Developer, Support &amp; Implementation Engineer, Graphic Designer" class="profile-img" width="1024" height="1536" decoding="async" fetchpriority="high">
-                        <div class="image-decoration"></div>
-                    </div>
+                <div class="hero-meta">
+                    <a href="./cv/Sarah_Gordon_CV_2026.html" target="_blank" rel="noopener noreferrer">View CV</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="./CvsarahG.pdf?v=5" download="Sarah_Gordon_CV_2026.pdf">Download CV</a>
+                    <span aria-hidden="true">·</span>
+                    <span>iMart Group · Full-time</span>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
+        <div class="hero-media" aria-hidden="false">
+            <img
+                src="images/profile.png"
+                alt="Sarah Gordon — Full Stack Developer based in Dar es Salaam"
+                class="profile-img"
+                width="1024"
+                height="1536"
+                decoding="async"
+                fetchpriority="high"
+            >
         </div>
     </header>
+
     <div class="trust-bar">
         <div class="container">
             <p>Selected production environments</p>
