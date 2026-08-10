@@ -544,16 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(stat);
     });
 
-    // Parallax effect for hero section (skip when user prefers reduced motion)
-    if (!prefersReducedMotion) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-    }
+    // Hero must stay in document flow — no parallax (it overlapped About)
 
     // Add hover effect to service cards
     const serviceCards = document.querySelectorAll('.service-card');
