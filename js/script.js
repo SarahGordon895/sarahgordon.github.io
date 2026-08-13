@@ -159,12 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const cursor = document.querySelector('.cursor');
     const skills = [
         'Full Stack Developer',
-        'Support & Implementation Engineer',
-        'UI/UX Designer',
-        'Graphic Designer',
-        'Technical Project Manager',
-        'Web Developer',
-        'Digital Product Builder'
+        'Next.js & React Engineer',
+        'Laravel · Spring Boot · Go',
+        'Flutter Mobile Developer',
+        'Windows Server · IIS · Linux',
+        'SQL Server · Profiler · Access',
+        'Support & Implementation',
+        'UI/UX & Graphic Designer'
     ];
     
     let skillIndex = 0;
@@ -881,4 +882,78 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
         });
     });
+
+    // Scroll reveals
+    const revealEls = document.querySelectorAll('[data-reveal], .summary-card, .tech-category, .service-card, .workflow-step, .portfolio-item, .section-header, .experience-item');
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'none';
+                revealObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach((el, i) => {
+            if (!el.hasAttribute('data-reveal')) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(24px)';
+                el.style.transition = `opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) ${Math.min(i % 6, 5) * 0.06}s, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) ${Math.min(i % 6, 5) * 0.06}s`;
+            }
+            revealObserver.observe(el);
+        });
+    } else {
+        revealEls.forEach((el) => {
+            el.classList.add('is-visible');
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    }
+
+    // Soft pointer glow (desktop)
+    const glow = document.getElementById('pointerGlow');
+    if (glow && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+        let raf = 0;
+        let mx = 0;
+        let my = 0;
+        window.addEventListener('pointermove', (e) => {
+            mx = e.clientX;
+            my = e.clientY;
+            glow.classList.add('on');
+            if (raf) return;
+            raf = requestAnimationFrame(() => {
+                glow.style.left = mx + 'px';
+                glow.style.top = my + 'px';
+                raf = 0;
+            });
+        }, { passive: true });
+        document.addEventListener('mouseleave', () => glow.classList.remove('on'));
+    }
+
+    // Stagger tech chips on first view
+    document.querySelectorAll('.tech-items').forEach((group) => {
+        const chips = group.querySelectorAll('.tech-item');
+        chips.forEach((chip, index) => {
+            chip.style.opacity = '0';
+            chip.style.transform = 'translateY(10px)';
+            chip.dataset.stagger = String(index);
+        });
+    });
+    const chipObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.querySelectorAll('.tech-item').forEach((chip) => {
+                const delay = Number(chip.dataset.stagger || 0) * 35;
+                setTimeout(() => {
+                    chip.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                    chip.style.opacity = '1';
+                    chip.style.transform = 'none';
+                }, prefersReducedMotion ? 0 : delay);
+            });
+            chipObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.tech-items').forEach((g) => chipObserver.observe(g));
 });

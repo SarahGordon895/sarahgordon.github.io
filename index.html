@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarah Gordon — Full Stack Developer, Support &amp; Implementation, Graphic Design</title>
-    <meta name="description" content="Sarah Gordon — full stack developer, support &amp; implementation engineer, and graphic designer. Laravel e-commerce, ISP sites, school systems, SMS platforms, and brand work from Dar es Salaam, Tanzania.">
-    <meta name="theme-color" content="#0b1f3a">
+    <meta name="description" content="Sarah Gordon — full stack developer: Laravel, React/Next.js, Flutter, Spring Boot, Go, SQL Server, Windows Server, IIS, Linux. Portfolio from Dar es Salaam, Tanzania.">
+    <meta name="theme-color" content="#071a2e">
     <link rel="canonical" href="https://sarahgordon895.github.io/sarahgordon.github.io/">
     <link rel="dns-prefetch" href="https://github.com">
     <link rel="preconnect" href="https://github.com" crossorigin>
@@ -19,10 +19,10 @@
     <meta name="twitter:title" content="Sarah Gordon — Full Stack, Support &amp; Implementation, Graphic Design">
     <meta name="twitter:description" content="Full stack development, support &amp; implementation, UI/UX, and graphic design — explore shipped work.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=20260810h">
+    <link rel="stylesheet" href="css/style.css?v=20260813a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <!-- Preload critical images -->
@@ -47,7 +47,7 @@
             "https://github.com/SarahGordon895",
             "https://www.linkedin.com/in/sarah-gordon-0502b335b"
         ],
-        "knowsAbout": ["Laravel", "Filament", "React", "PHP", "JavaScript", "REST APIs", "MySQL", "E-commerce", "SMS platforms", "Payment sandbox APIs", "Support & implementation", "UI/UX design", "Technical project management", "Brand & print design", "Linux VPS", "Shared hosting"]
+        "knowsAbout": ["Laravel", "Filament", "React", "Next.js", "PHP", "JavaScript", "Go", "Spring Boot", "Java", "Dart", "Flutter", "REST APIs", "MySQL", "Microsoft SQL Server", "Microsoft Access", "SQL Profiler", "Windows Server", "Linux Server", "IIS", "E-commerce", "SMS platforms", "Payment APIs", "Support & implementation", "UI/UX design", "Brand & print design"]
     }
     </script>
     <script type="application/ld+json">
@@ -85,12 +85,14 @@
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Loading Screen -->
-    <div id="loader" class="loader">
+    <div id="loader" class="loader" aria-hidden="true">
         <div class="loader-content">
+            <div class="loader-mark" aria-hidden="true">SG</div>
             <div class="loader-spinner"></div>
             <p>Loading portfolio…</p>
         </div>
     </div>
+    <div class="pointer-glow" id="pointerGlow" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar" aria-label="Primary">
@@ -132,16 +134,24 @@
     <main id="main-content">
     <!-- Hero — same container width as nav + About -->
     <header class="hero" id="home">
+        <div class="hero-atmosphere" aria-hidden="true">
+            <span class="hero-orb hero-orb-a"></span>
+            <span class="hero-orb hero-orb-b"></span>
+            <span class="hero-grid-lines"></span>
+        </div>
         <div class="container hero-grid">
-            <div class="hero-panel">
+            <div class="hero-panel" data-reveal>
                 <p class="hero-eyebrow">Full Stack Developer · Dar es Salaam</p>
                 <h1 class="hero-title">
                     <span class="hero-title-line">Sarah</span>
                     <span class="hero-title-line">Gordon</span>
                 </h1>
-                <p class="hero-lede">Production systems for payments, SMS, and commerce.</p>
+                <p class="hero-role" aria-live="polite">
+                    <span class="typed-text">Full Stack Developer</span><span class="cursor" aria-hidden="true">|</span>
+                </p>
+                <p class="hero-lede">Production systems for payments, SMS, commerce — and the servers that keep them live.</p>
                 <p class="hero-description">
-                    I design, build, deploy, and hand over Laravel and React products — from LipaPay and enterprise SMS to branded client sites.
+                    I design, build, deploy, and hand over Laravel, React/Next.js, Flutter, and Spring/Go services — from LipaPay and enterprise SMS to Windows Server, Linux, and IIS environments.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Discuss a project</a>
@@ -150,21 +160,29 @@
                 <div class="hero-meta">
                     <a href="./cv/Sarah_Gordon_CV_2026.html" target="_blank" rel="noopener noreferrer">View CV</a>
                     <span aria-hidden="true">·</span>
-                    <a href="./CvsarahG.pdf?v=5" download="Sarah_Gordon_CV_2026.pdf">Download CV</a>
+                    <a href="./CvsarahG.pdf?v=20260813" download="Sarah_Gordon_CV_2026.pdf">Download CV</a>
                     <span aria-hidden="true">·</span>
                     <span>iMart Group · Full-time</span>
                 </div>
             </div>
-            <div class="hero-media">
-                <img
-                    src="images/profile.png"
-                    alt="Sarah Gordon — Full Stack Developer based in Dar es Salaam"
-                    class="profile-img"
-                    width="1024"
-                    height="1536"
-                    decoding="async"
-                    fetchpriority="high"
-                >
+            <div class="hero-media" data-reveal>
+                <div class="hero-media-frame">
+                    <img
+                        src="images/profile.png"
+                        alt="Sarah Gordon — Full Stack Developer based in Dar es Salaam"
+                        class="profile-img"
+                        width="1024"
+                        height="1536"
+                        decoding="async"
+                        fetchpriority="high"
+                    >
+                </div>
+                <ul class="hero-float-tags" aria-hidden="true">
+                    <li>Laravel</li>
+                    <li>Flutter</li>
+                    <li>Next.js</li>
+                    <li>SQL Server</li>
+                </ul>
             </div>
         </div>
     </header>
@@ -172,6 +190,24 @@
     <div class="trust-bar">
         <div class="container">
             <p>Selected production environments</p>
+            <div class="trust-marquee" aria-hidden="true">
+                <div class="trust-track">
+                    <span>iMart Group</span>
+                    <span>LipaPay</span>
+                    <span>Victoria Lush</span>
+                    <span>Craft Silicon</span>
+                    <span>TechMorah</span>
+                    <span>Active Targets</span>
+                    <span>Savanna Fibre</span>
+                    <span>iMart Group</span>
+                    <span>LipaPay</span>
+                    <span>Victoria Lush</span>
+                    <span>Craft Silicon</span>
+                    <span>TechMorah</span>
+                    <span>Active Targets</span>
+                    <span>Savanna Fibre</span>
+                </div>
+            </div>
             <div class="trust-list">
                 <span>iMart Group</span>
                 <span>LipaPay</span>
@@ -208,10 +244,10 @@
                     </div>
                     <h3>How I deliver value</h3>
                     <p>
-                        I bridge <strong>product thinking</strong>, <strong>interface &amp; graphic design</strong>, and <strong>engineering</strong>: briefs become UI systems and brand assets, then Laravel and React implementations with clear APIs and MySQL. After go-live I stay as <strong>support &amp; implementation</strong> — hardening security, tuning performance, training staff, and iterating from real usage.
+                        I bridge <strong>product thinking</strong>, <strong>interface &amp; graphic design</strong>, and <strong>engineering</strong>: briefs become UI systems and brand assets, then Laravel, React/Next.js, Flutter, Spring Boot, and Go implementations with clear APIs and solid data layers (MySQL, SQL Server, Access). After go-live I stay as <strong>support &amp; implementation</strong> — hardening security, tuning performance, training staff, and iterating from real usage.
                     </p>
                     <p>
-                        Recent shipped work includes <strong>Active Targets</strong> (live e-commerce + Filament admin), <strong>imartListener</strong> + SMS portal for iMart Group, <strong>LipaPay</strong> portal / airtime / disbursement, <strong>Savanna Fibre</strong>, school fee tracking, Victoria Lush SMS on Linux VPS, and ELMS leave. Workflow: discover → design → build → deploy → support.
+                        Recent shipped work includes <strong>Active Targets</strong> (live e-commerce + Filament admin), <strong>imartListener</strong> + SMS portal for iMart Group, <strong>LipaPay</strong> portal / airtime / disbursement, <strong>Savanna Fibre</strong>, school fee tracking, Victoria Lush SMS on Linux VPS, and ELMS leave. Environments I operate: <strong>Windows Server</strong>, <strong>IIS</strong>, <strong>Linux Server</strong>, SQL Profiler diagnostics. Workflow: discover → design → build → deploy → support.
                     </p>
                     
                     <!-- Professional Experience -->
@@ -229,7 +265,7 @@
                                 <h5>Support &amp; Implementation Engineer — Craft Silicon</h5>
                                 <span class="experience-date">Part-time · 15 May 2026 – 11 August 2026</span>
                             </div>
-                            <p class="experience-company">Three-month part-time contract (ended 11 August 2026): production support for bank clients — Mobile/Internet/Agency Banking, APIs, SQL Server, GL/accounting rules.</p>
+                            <p class="experience-company">Three-month part-time contract (ended 11 August 2026): production support for bank clients — Mobile/Internet/Agency Banking, REST APIs, <strong>Microsoft SQL Server</strong> (procedures, views, T-SQL), <strong>SQL Profiler</strong>, SSRS reports, <strong>Windows Server / IIS</strong>, GL/accounting rules, and structured root-cause documentation.</p>
                         </div>
                         <div class="experience-item">
                             <div class="experience-header">
@@ -247,10 +283,10 @@
                         </div>
                         <div class="experience-item">
                             <div class="experience-header">
-                                <h5>Full Stack Developer — Victoria Lush Limited</h5>
-                                <span class="experience-date">Ongoing</span>
+                                <h5>Senior Full Stack Developer &amp; Acting CIO — Victoria Lush Limited</h5>
+                                <span class="experience-date">15 March 2026 – 15 June 2026</span>
                             </div>
-                            <p class="experience-company">Victoria Lush Limited — built the <strong>company portal</strong> (VLL SMS), <strong>VLL Admin</strong>, and SmSver1 stack; deployed and maintain production on a <strong>Linux VPS</strong> (SSL, environment config, handover runbooks) for bulk SMS, resellers, and daily operations.</p>
+                            <p class="experience-company">Completed engagement: built the <strong>company portal</strong> (VLL SMS), <strong>VLL Admin</strong>, SmSver1 stack, and VLL-SMS Flutter listener; deployed on a <strong>Linux VPS</strong> with SSL, environment config, and handover runbooks for bulk SMS, resellers, and operations.</p>
                         </div>
                         <div class="experience-item">
                             <div class="experience-header">
@@ -328,12 +364,12 @@
                 <h2 class="section-title">Capabilities</h2>
                 <p class="section-subtitle">Engineering, interface craft, and the environments I ship from.</p>
             </div>
-            <div class="skills-intro">
+            <div class="skills-intro" data-reveal>
                 <p class="skills-description">
-                    I build <strong>end-to-end web products</strong> — Laravel APIs and data models on the server, React on the client, and <strong>REST contracts</strong> that keep teams unblocked. I care about naming, folder structure, and patterns that make the next feature cheaper to add.
+                    I build <strong>end-to-end products</strong> — Laravel/Filament and Spring Boot on the server, React and <strong>Next.js</strong> on the client, Flutter for mobile listener desks, plus Go services when a lean API fits. I care about naming, folder structure, and patterns that make the next feature cheaper to add.
                 </p>
                 <p class="skills-description">
-                    On the <strong>UI side</strong> I translate briefs into wireframes, component thinking, and production CSS (including SASS when the project calls for it). On the <strong>delivery side</strong> I run projects with clear milestones: local builds on Apache/XAMPP when needed, version control in Git/GitHub, and production handovers — including <strong>Linux VPS deployment</strong> for Victoria Lush Limited (company portal + SMS stack) and <strong>shared hosting</strong> for iMartGroup LipaPay, plus static hosting such as GitHub Pages.
+                    On the <strong>ops side</strong> I ship and support on <strong>Windows Server</strong>, <strong>IIS</strong>, and <strong>Linux Server</strong> (VPS/shared hosting), diagnose with <strong>SQL Profiler</strong> and logs, and hand over runbooks. Databases span MySQL, PostgreSQL, Microsoft SQL Server / T-SQL, and <strong>Microsoft Access SQL</strong> where clients need it. Local builds on XAMPP, version control in Git/GitHub, static hosting on GitHub Pages when that is the right fit.
                 </p>
             </div>
 
@@ -357,19 +393,33 @@
                             <div class="proficiency-item">
                                 <span class="proficiency-label">Backend Development</span>
                                 <div class="proficiency-bar">
+                                    <div class="proficiency-fill" style="width: 90%"></div>
+                                </div>
+                                <span class="proficiency-value">90%</span>
+                            </div>
+                            <div class="proficiency-item">
+                                <span class="proficiency-label">Databases &amp; SQL</span>
+                                <div class="proficiency-bar">
                                     <div class="proficiency-fill" style="width: 88%"></div>
                                 </div>
                                 <span class="proficiency-value">88%</span>
                             </div>
                             <div class="proficiency-item">
-                                <span class="proficiency-label">UI/UX Design</span>
+                                <span class="proficiency-label">Servers &amp; IIS / Linux</span>
+                                <div class="proficiency-bar">
+                                    <div class="proficiency-fill" style="width: 86%"></div>
+                                </div>
+                                <span class="proficiency-value">86%</span>
+                            </div>
+                            <div class="proficiency-item">
+                                <span class="proficiency-label">UI/UX &amp; Brand</span>
                                 <div class="proficiency-bar">
                                     <div class="proficiency-fill" style="width: 85%"></div>
                                 </div>
                                 <span class="proficiency-value">85%</span>
                             </div>
                             <div class="proficiency-item">
-                                <span class="proficiency-label">Project Management</span>
+                                <span class="proficiency-label">Project Delivery</span>
                                 <div class="proficiency-bar">
                                     <div class="proficiency-fill" style="width: 87%"></div>
                                 </div>
@@ -436,8 +486,8 @@
                                     <i class="fab fa-laravel"></i>
                                 </div>
                                 <div class="certification-info">
-                                    <h4>Laravel &amp; APIs</h4>
-                                    <p>Routing, auth, validation, queues when needed, and integrations teams can build on.</p>
+                                    <h4>Laravel, Spring Boot &amp; Go</h4>
+                                    <p>Routing, auth, validation, APIs, Filament admin — plus Spring Boot and Go when the stack calls for it.</p>
                                 </div>
                             </div>
                             <div class="certification-item">
@@ -445,8 +495,8 @@
                                     <i class="fab fa-react"></i>
                                 </div>
                                 <div class="certification-info">
-                                    <h4>React &amp; product UI</h4>
-                                    <p>Component structure, state, and interfaces that stay readable as features grow.</p>
+                                    <h4>React, Next.js &amp; product UI</h4>
+                                    <p>Component structure, App Router thinking, state, and interfaces that stay readable as features grow.</p>
                                 </div>
                             </div>
                             <div class="certification-item">
@@ -454,8 +504,17 @@
                                     <i class="fas fa-database"></i>
                                 </div>
                                 <div class="certification-info">
-                                    <h4>Data &amp; MySQL</h4>
-                                    <p>Practical schema design, migrations mindset, and performance-aware queries.</p>
+                                    <h4>SQL Server, MySQL &amp; Access</h4>
+                                    <p>T-SQL procedures/views, Profiler-led diagnosis, MySQL/PostgreSQL schemas, and Microsoft Access SQL for legacy ops.</p>
+                                </div>
+                            </div>
+                            <div class="certification-item">
+                                <div class="certification-badge">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="certification-info">
+                                    <h4>Windows Server, IIS &amp; Linux</h4>
+                                    <p>Deployments, SSL/TLS, Event Viewer, MSMQ, VPS/shared hosting, and production runbooks.</p>
                                 </div>
                             </div>
                             <div class="certification-item">
@@ -487,17 +546,17 @@
                         <h3>Industry Expertise</h3>
                         <div class="industry-tags">
                             <span class="industry-tag">E-commerce</span>
-                            <span class="industry-tag">Healthcare</span>
-                            <span class="industry-tag">Education</span>
-                            <span class="industry-tag">Finance</span>
-                            <span class="industry-tag">Logistics</span>
-                            <span class="industry-tag">Entertainment</span>
-                            <span class="industry-tag">Real Estate</span>
-                            <span class="industry-tag">Startups</span>
-                            <span class="industry-tag">Enterprise</span>
-                            <span class="industry-tag">Telecom / SMS</span>
                             <span class="industry-tag">Fintech</span>
+                            <span class="industry-tag">Telecom / SMS</span>
+                            <span class="industry-tag">ISP / Fibre</span>
+                            <span class="industry-tag">Education</span>
+                            <span class="industry-tag">HR systems</span>
+                            <span class="industry-tag">Enterprise</span>
+                            <span class="industry-tag">Startups</span>
                             <span class="industry-tag">SaaS</span>
+                            <span class="industry-tag">Payments</span>
+                            <span class="industry-tag">Brand &amp; print</span>
+                            <span class="industry-tag">IT support</span>
                         </div>
                         <div class="expertise-description">
                             <p>Hands-on experience across sectors where I have shipped real work — depth varies by engagement, and I am upfront about fit before we start.</p>
@@ -507,13 +566,17 @@
             </div>
 
             <!-- Technologies Stack -->
-            <div class="tech-stack-section">
+            <div class="tech-stack-section" data-reveal>
                 <h3 class="tech-stack-title">Technology &amp; tooling</h3>
+                <div class="skill-orbit" aria-hidden="true">
+                    <span>Next.js</span><span>Go</span><span>Spring Boot</span><span>SQL Profiler</span><span>IIS</span><span>Flutter</span><span>Laravel</span><span>Access SQL</span>
+                </div>
                 <div class="tech-stack-grid">
                     <div class="tech-category">
                         <h4><i class="fas fa-laptop-code"></i> Frontend</h4>
                         <div class="tech-items">
                             <span class="tech-item">React.js</span>
+                            <span class="tech-item highlight">Next.js</span>
                             <span class="tech-item">JavaScript ES6+</span>
                             <span class="tech-item">TypeScript</span>
                             <span class="tech-item">HTML5</span>
@@ -526,28 +589,66 @@
                         <div class="tech-items">
                             <span class="tech-item">Laravel</span>
                             <span class="tech-item">PHP</span>
+                            <span class="tech-item highlight">Spring Boot</span>
+                            <span class="tech-item highlight">Go</span>
+                            <span class="tech-item">Java</span>
+                            <span class="tech-item">Node.js</span>
+                            <span class="tech-item">Filament</span>
                             <span class="tech-item">RESTful APIs</span>
                             <span class="tech-item">Auth &amp; validation</span>
-                            <span class="tech-item">Filament</span>
                             <span class="tech-item">SMS / SMPP</span>
                             <span class="tech-item">Payment APIs</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-mobile-alt"></i> Mobile</h4>
+                        <div class="tech-items">
+                            <span class="tech-item">Flutter</span>
+                            <span class="tech-item">Dart</span>
+                            <span class="tech-item">SMS / WhatsApp capture</span>
+                            <span class="tech-item">Android deploy</span>
                         </div>
                     </div>
                     <div class="tech-category">
                         <h4><i class="fas fa-database"></i> Database</h4>
                         <div class="tech-items">
                             <span class="tech-item">MySQL</span>
+                            <span class="tech-item">PostgreSQL</span>
+                            <span class="tech-item">SQLite</span>
+                            <span class="tech-item highlight">Microsoft SQL Server</span>
+                            <span class="tech-item">T-SQL / stored procs</span>
+                            <span class="tech-item highlight">SQL Profiler</span>
+                            <span class="tech-item">SSRS</span>
+                            <span class="tech-item highlight">Microsoft Access SQL</span>
                             <span class="tech-item">Schema design</span>
-                            <span class="tech-item">phpMyAdmin</span>
                         </div>
                     </div>
                     <div class="tech-category">
-                        <h4><i class="fas fa-desktop"></i> Environments</h4>
+                        <h4><i class="fas fa-desktop"></i> Servers &amp; hosting</h4>
                         <div class="tech-items">
+                            <span class="tech-item highlight">Windows Server</span>
+                            <span class="tech-item highlight">Linux Server</span>
+                            <span class="tech-item highlight">IIS</span>
+                            <span class="tech-item">SSL / TLS</span>
+                            <span class="tech-item">MSMQ</span>
+                            <span class="tech-item">Event Viewer</span>
                             <span class="tech-item">XAMPP / Apache</span>
-                            <span class="tech-item">Local &amp; staging</span>
+                            <span class="tech-item">Linux VPS</span>
+                            <span class="tech-item">Shared hosting / cPanel</span>
                             <span class="tech-item">GitHub Pages</span>
-                            <span class="tech-item">Shared / VPS deploy</span>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h4><i class="fas fa-code"></i> Languages</h4>
+                        <div class="tech-items">
+                            <span class="tech-item">C</span>
+                            <span class="tech-item">HTML / CSS</span>
+                            <span class="tech-item">JavaScript</span>
+                            <span class="tech-item">PHP</span>
+                            <span class="tech-item">Java</span>
+                            <span class="tech-item">Dart</span>
+                            <span class="tech-item">Go</span>
+                            <span class="tech-item">SQL / T-SQL</span>
                         </div>
                     </div>
                     <div class="tech-category">
@@ -555,16 +656,22 @@
                         <div class="tech-items">
                             <span class="tech-item">Wireframes &amp; UI kits</span>
                             <span class="tech-item">Brand &amp; print assets</span>
+                            <span class="tech-item">Adobe / design tooling</span>
                             <span class="tech-item">VS Code</span>
                             <span class="tech-item">Git / GitHub</span>
-                            <span class="tech-item">Postman / API testing</span>
+                            <span class="tech-item">GitHub Actions</span>
+                            <span class="tech-item">Postman / Swagger</span>
+                            <span class="tech-item">PowerShell</span>
                             <span class="tech-item">npm / Node tooling</span>
+                            <span class="tech-item">Composer</span>
                         </div>
                     </div>
                     <div class="tech-category">
-                        <h4><i class="fas fa-tools"></i> Platform tools</h4>
+                        <h4><i class="fas fa-tools"></i> Delivery</h4>
                         <div class="tech-items">
-                            <span class="tech-item">Git</span>
+                            <span class="tech-item">UAT &amp; incident triage</span>
+                            <span class="tech-item">Technical documentation</span>
+                            <span class="tech-item">FTPS / Namecheap</span>
                             <span class="tech-item">Docker</span>
                             <span class="tech-item">CI-friendly structure</span>
                         </div>
@@ -607,20 +714,41 @@
                     <div class="service-icon">
                         <i class="fab fa-react"></i>
                     </div>
-                    <h3>React Frontend Development</h3>
-                    <p>Creating modern, responsive user interfaces with React.js, including state management, component architecture, and performance optimization.</p>
+                    <h3>React &amp; Next.js Frontends</h3>
+                    <p>Modern, responsive interfaces with React and Next.js — component architecture, routing, and performance that feels fast on real devices.</p>
                     <div class="service-features">
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
-                            <span>Component-Based Architecture</span>
+                            <span>React &amp; Next.js apps</span>
                         </div>
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
-                            <span>State Management (Redux)</span>
+                            <span>Component architecture</span>
                         </div>
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
-                            <span>Responsive Design</span>
+                            <span>Responsive product UI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Spring Boot &amp; Go APIs</h3>
+                    <p>Service-oriented backends with Spring Boot and Go when you need Java enterprise patterns or lean, high-throughput API services beside Laravel.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Spring Boot services</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Go micro-APIs</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>REST / JSON contracts</span>
                         </div>
                     </div>
                 </div>
@@ -727,19 +855,40 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>Deployment &amp; handover</h3>
-                    <p>From XAMPP or staging to production: Linux VPS (Victoria Lush), shared hosting (iMartGroup), SSL, domains, and runbooks so your team is never guessing.</p>
+                    <p>From XAMPP or staging to production: <strong>Windows Server / IIS</strong>, <strong>Linux Server</strong> (VPS &amp; shared), SSL, domains, and runbooks so your team is never guessing.</p>
                     <div class="service-features">
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
-                            <span>Linux VPS deployment</span>
+                            <span>Windows Server &amp; IIS</span>
                         </div>
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
-                            <span>Shared / PHP hosting</span>
+                            <span>Linux VPS &amp; shared hosting</span>
                         </div>
                         <div class="service-feature">
                             <i class="fas fa-check"></i>
                             <span>Runbooks &amp; documentation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>SQL Server, Access &amp; Profiler</h3>
+                    <p>Database-first troubleshooting and delivery: T-SQL, stored procedures, Microsoft Access SQL, SQL Profiler traces, SSRS reports, and evidence-based fixes.</p>
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>SQL Server / T-SQL</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>SQL Profiler diagnostics</span>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Microsoft Access SQL</span>
                         </div>
                     </div>
                 </div>
@@ -1516,6 +1665,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="js/script.js?v=20260810h"></script>
+    <script src="js/script.js?v=20260813a"></script>
 </body>
 </html>
