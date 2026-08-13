@@ -113,8 +113,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Active navigation link based on scroll position
+    // Active navigation — multi-page uses data-page; fallback scroll spy only on home one-pager leftovers
     function updateActiveNavLink() {
+        const page = document.body.getAttribute('data-page');
+        if (page) {
+            document.querySelectorAll('.nav-link').forEach((l) => {
+                l.classList.remove('active');
+                l.removeAttribute('aria-current');
+            });
+            const map = {
+                home: 'index.html',
+                about: 'about.html',
+                skills: 'skills.html',
+                services: 'services.html',
+                portfolio: 'portfolio.html',
+                contact: 'contact.html',
+            };
+            const href = map[page] || 'index.html';
+            const active = document.querySelector(`.nav-link[href="${href}"]`);
+            if (active) {
+                active.classList.add('active');
+                active.setAttribute('aria-current', 'page');
+            }
+            return;
+        }
+
         const navOffset = (document.querySelector('.navbar')?.offsetHeight || 72) + 16;
         const scrollY = window.pageYOffset + navOffset;
         const navLinksAll = document.querySelectorAll('.nav-link');
@@ -135,7 +158,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (active) active.classList.add('active');
     }
 
-    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+    window.addEventListener('scroll', () => {
+        if (!document.body.getAttribute('data-page')) updateActiveNavLink();
+    }, { passive: true });
     updateActiveNavLink();
 
     // Navbar scroll effect
