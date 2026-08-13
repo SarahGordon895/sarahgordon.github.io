@@ -322,58 +322,73 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Portfolio Filter Functionality
+    // Portfolio Filter Functionality — corporate groups
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const workGroups = document.querySelectorAll('.work-group');
+    const workCount = document.getElementById('workCount');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            // Show/hide portfolio items based on filter
-            portfolioItems.forEach(item => {
+    function setWorkCount(n) {
+        if (!workCount) return;
+        workCount.textContent = n === 0 ? 'No matches in this view' : `${n} engagement${n === 1 ? '' : 's'} shown`;
+    }
+
+    function applyPortfolioFilter(filter) {
+        let visible = 0;
+        portfolioItems.forEach((item) => {
+            const categories = (item.getAttribute('data-category') || '').trim().split(/\s+/);
+            const show = filter === 'all' || categories.includes(filter);
+            if (show) {
+                item.style.display = '';
+                item.classList.remove('is-filtered-out');
+                visible += 1;
+                requestAnimationFrame(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                });
+            } else {
+                item.classList.add('is-filtered-out');
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(12px)';
+                setTimeout(() => {
+                    if (item.classList.contains('is-filtered-out')) item.style.display = 'none';
+                }, 220);
+            }
+        });
+
+        workGroups.forEach((group) => {
+            const any = [...group.querySelectorAll('.portfolio-item')].some(
+                (item) => item.style.display !== 'none' && !item.classList.contains('is-filtered-out')
+            );
+            // After timeout, re-check display
+            const visibleInGroup = [...group.querySelectorAll('.portfolio-item')].filter((item) => {
                 const categories = (item.getAttribute('data-category') || '').trim().split(/\s+/);
-                
-                if (filter === 'all') {
-                    // Show all items with animation
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100);
-                } else if (categories.includes(filter)) {
-                    // Show matching items with animation
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    // Hide non-matching items with animation
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
+                return filter === 'all' || categories.includes(filter);
+            }).length;
+            group.classList.toggle('is-empty', visibleInGroup === 0);
+        });
+
+        setWorkCount(visible);
+    }
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+            filterButtons.forEach((btn) => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
             });
+            this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
+            applyPortfolioFilter(this.getAttribute('data-filter') || 'all');
         });
     });
 
-    // Initialize - show all items on page load
-    portfolioItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, index * 100);
+    // Initialize
+    portfolioItems.forEach((item) => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
     });
+    applyPortfolioFilter('all');
 
     // Enhanced contact form functionality
     const contactForm = document.getElementById('contactForm');
@@ -872,7 +887,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const href = link.getAttribute('href');
             if (!href) return;
-            const root = link.closest('.portfolio-image');
+            const root = link.closest('.portfolio-item') || link.closest('.portfolio-image');
             const thumb = root ? root.querySelector('.portfolio-img') : null;
             const box = ensureLightbox();
             const img = box.querySelector('img');

@@ -19,7 +19,7 @@
     <meta name="twitter:title" content="Sarah Gordon — Full Stack, Support &amp; Implementation, Graphic Design">
     <meta name="twitter:description" content="Full stack development, support &amp; implementation, UI/UX, and graphic design — explore shipped work.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=20260813a">
+    <link rel="stylesheet" href="css/style.css?v=20260813b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -906,31 +906,42 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header portfolio-header-block">
+                <p class="section-kicker">Case portfolio</p>
                 <h2 class="section-title">Selected work</h2>
                 <p class="section-subtitle">Production systems and brand engagements — live products first, public repositories where the code is open.</p>
             </div>
-            <div class="portfolio-filters">
-                <button type="button" class="filter-btn active" data-filter="all">
-                    <i class="fas fa-th"></i> All
-                </button>
-                <button type="button" class="filter-btn" data-filter="ui">
-                    <i class="fas fa-code"></i> Apps &amp; systems
-                </button>
-                <button type="button" class="filter-btn" data-filter="enterprise">
-                    <i class="fas fa-building"></i> Enterprise
-                </button>
-                <button type="button" class="filter-btn" data-filter="graphic">
-                    <i class="fas fa-palette"></i> Brand &amp; UI
-                </button>
+
+            <div class="work-toolbar" role="region" aria-label="Portfolio controls">
+                <div class="portfolio-filters" role="tablist" aria-label="Filter work">
+                    <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter="live" aria-pressed="false">Live products</button>
+                    <button type="button" class="filter-btn" data-filter="ui" aria-pressed="false">Apps &amp; systems</button>
+                    <button type="button" class="filter-btn" data-filter="enterprise" aria-pressed="false">Enterprise</button>
+                    <button type="button" class="filter-btn" data-filter="graphic" aria-pressed="false">Brand &amp; UI</button>
+                </div>
+                <div class="work-legend" aria-label="Status key">
+                    <span class="work-legend__item"><span class="status-pill status-pill--live">Live</span> Deployed</span>
+                    <span class="work-legend__item"><span class="status-pill status-pill--code">Source</span> Repository</span>
+                    <span class="work-legend__item"><span class="status-pill status-pill--local">Local</span> Private demo</span>
+                    <span class="work-legend__item"><span class="status-pill status-pill--brand">Brand</span> Design</span>
+                </div>
+                <p class="portfolio-repo-note">Previews are real UI captures. Open <strong>Live</strong> for the deployed product or <strong>Source</strong> for the GitHub repository. <a href="https://github.com/SarahGordon895?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories</a></p>
+                <p class="work-count" id="workCount" aria-live="polite"></p>
             </div>
-            <p class="portfolio-repo-note">Previews are real UI captures from each build. Source repos are on <a href="https://github.com/SarahGordon895?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>; <span class="portfolio-legend"><span class="status-pill status-pill--live">Live</span> = deployed demo</span> · <span class="portfolio-legend"><span class="status-pill status-pill--code">Source</span> = repository</span>.</p>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="ui enterprise">
+
+            <div class="work-group" data-group="live">
+                <div class="work-group__head">
+                    <p class="work-group__kicker">01 — Production</p>
+                    <h3 class="work-group__title">Live products</h3>
+                    <p class="work-group__lead">Shipped systems with public URLs — payments, SMS, commerce, ISP, and HR.</p>
+                </div>
+                <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/active-targets.jpg" alt="Active Targets e-commerce storefront for AR500 steel shooting targets" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/active-targets.jpg" alt="Active Targets e-commerce storefront for AR500 steel shooting targets" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Active Targets — e-commerce</h3>
@@ -942,22 +953,17 @@
                                     <span class="tech-tag">Filament</span>
                                     <span class="tech-tag">E-commerce</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/active-targets.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview storefront"><i class="fas fa-expand"></i></a>
-                                    <a href="images/projects/active-targets-shop.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview shop catalog"><i class="fas fa-store"></i></a>
-                                    <a href="images/projects/active-targets-admin.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview admin login"><i class="fas fa-user-shield"></i></a>
-                                    <a href="https://activetargets.org/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss a similar build"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/active-targets.jpg" data-lightbox="portfolio" aria-label="Preview storefront"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://activetargets.org/" target="_blank" rel="noopener noreferrer" aria-label="Live site"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss a similar build"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/imart-listener.jpg" alt="imartListener Flutter app login for iMart SMS and WhatsApp business desk" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/imart-listener.jpg" alt="imartListener Flutter app login for iMart SMS and WhatsApp business desk" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>imartListener — iMart SMS desk</h3>
@@ -969,21 +975,17 @@
                                     <span class="tech-tag">SMS/WhatsApp</span>
                                     <span class="tech-tag">Laravel API</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/imart-listener.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview Listener login"><i class="fas fa-expand"></i></a>
-                                    <a href="images/projects/imart-listener-icon.png" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="App icon"><i class="fas fa-mobile-alt"></i></a>
-                                    <a href="https://sms.imartgroup.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Related SMS portal"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/imart-listener.jpg" data-lightbox="portfolio" aria-label="Preview Listener login"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://sms.imartgroup.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Related SMS portal"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/imart-sms-portal.jpg" alt="iMart Group SMS portal login at sms.imartgroup.co.tz" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/imart-sms-portal.jpg" alt="iMart Group SMS portal login at sms.imartgroup.co.tz" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>iMart SMS Portal</h3>
@@ -995,20 +997,17 @@
                                     <span class="tech-tag">MySQL</span>
                                     <span class="tech-tag">SMS ops</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/imart-sms-portal.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview portal"><i class="fas fa-expand"></i></a>
-                                    <a href="https://sms.imartgroup.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live SMS portal"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/imart-sms-portal.jpg" data-lightbox="portfolio" aria-label="Preview portal"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://sms.imartgroup.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live SMS portal"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/lipapay-portal.jpg" alt="LipaPay Portal login dashboard for iMartGroup payments" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/lipapay-portal.jpg" alt="LipaPay Portal login dashboard for iMartGroup payments" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>LipaPay Portal — collections</h3>
@@ -1020,20 +1019,17 @@
                                     <span class="tech-tag">Payments API</span>
                                     <span class="tech-tag">MNO/Bank</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/lipapay-portal.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview portal"><i class="fas fa-expand"></i></a>
-                                    <a href="https://portal.lipapay.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live LipaPay portal"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss integrations"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/lipapay-portal.jpg" data-lightbox="portfolio" aria-label="Preview portal"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://portal.lipapay.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live LipaPay portal"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss integrations"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/lipa-airtime.jpg" alt="Lipa Airtime login for iMartGroup airtime platform" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/lipa-airtime.jpg" alt="Lipa Airtime login for iMartGroup airtime platform" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Lipa Airtime</h3>
@@ -1045,20 +1041,17 @@
                                     <span class="tech-tag">Airtime API</span>
                                     <span class="tech-tag">Callbacks</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/lipa-airtime.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview Airtime"><i class="fas fa-expand"></i></a>
-                                    <a href="https://airtime.lipapay.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live Lipa Airtime"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss integrations"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/lipa-airtime.jpg" data-lightbox="portfolio" aria-label="Preview Airtime"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://airtime.lipapay.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live Lipa Airtime"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss integrations"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/lipa-disbursement.jpg" alt="LipaPay Disbursement sign-in for payout operations" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/lipa-disbursement.jpg" alt="LipaPay Disbursement sign-in for payout operations" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Lipa Disbursement</h3>
@@ -1070,20 +1063,17 @@
                                     <span class="tech-tag">Disbursement</span>
                                     <span class="tech-tag">APIs</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/lipa-disbursement.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview Disbursement"><i class="fas fa-expand"></i></a>
-                                    <a href="https://disbursement.lipapay.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live Disbursement"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss integrations"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/lipa-disbursement.jpg" data-lightbox="portfolio" aria-label="Preview Disbursement"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://disbursement.lipapay.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live Disbursement"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss integrations"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui">
+                <div class="portfolio-item work-card" data-category="ui live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/savanna-fibre.jpg" alt="Savanna Fibre ISP website homepage with packages" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/savanna-fibre.jpg" alt="Savanna Fibre ISP website homepage with packages" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Savanna Fibre — ISP digital</h3>
@@ -1095,214 +1085,17 @@
                                     <span class="tech-tag">ISP UX</span>
                                     <span class="tech-tag">Lead forms</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/savanna-fibre.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://www.savannafibre.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss a similar build"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/savanna-fibre.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://www.savannafibre.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live site"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss a similar build"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui enterprise">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--local">Local demo</span>
-                        <img src="images/projects/fee-tracking.jpg" alt="Fee Tracking and Reminder System login for Mbonea Secondary School" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>Fee Tracking &amp; Reminder (FTRS)</h3>
-                                    <span class="portfolio-category">Laravel · schools</span>
-                                </div>
-                                <p class="portfolio-description">Mbonea Secondary School — staff portal to track fees, record payments, issue receipts, and send parent reminders from one secure Laravel system.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">Receipts</span>
-                                    <span class="tech-tag">Reminders</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/fee-tracking.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/portfolio-site.jpg" alt="Sarah Gordon portfolio website on GitHub Pages" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>Portfolio site (this project)</h3>
-                                    <span class="portfolio-category">GitHub Pages · public repo</span>
-                                </div>
-                                <p class="portfolio-description">Personal brand site — responsive layout, accessible navigation, and static hosting you can fork.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">HTML/CSS/JS</span>
-                                    <span class="tech-tag">GitHub Pages</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/portfolio-site.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/SarahGordon895/sarahgordon.github.io" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/techmorah.jpg" alt="TechMorah company site" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>TechMorah — company presence</h3>
-                                    <span class="portfolio-category">HTML · CSS · JS · Laravel</span>
-                                </div>
-                                <p class="portfolio-description">TechMorah Solution LTD — corporate site with case studies, contact, and AI chat; GitHub Pages build plus Laravel source for backend and client services.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">HTML/CSS/JS</span>
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">GitHub Pages</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/techmorah.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://sarahgordon895.github.io/TechMorah/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/SarahGordon895/TechMorah" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--local">Local demo</span>
-                        <img src="images/projects/cakezone.jpg" alt="CakeZone bakery admin panel built with Laravel and Filament" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>CakeZone — bakery admin</h3>
-                                    <span class="portfolio-category">Laravel · Filament</span>
-                                </div>
-                                <p class="portfolio-description">Shop management for cakes and orders — catalog, customers, and an admin panel built with Filament on Laravel.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">Filament</span>
-                                    <span class="tech-tag">MySQL</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/cakezone.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a local walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui enterprise">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--live">Live</span>
-
-                        <img src="images/projects/vll-admin.jpg" alt="VLL Admin dashboard login for Victoria Lush Limited" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>VLL Admin — Victoria Lush</h3>
-                                    <span class="portfolio-category">Laravel · enterprise SMS</span>
-                                </div>
-                                <p class="portfolio-description">Central admin for Victoria Lush Limited — user management, SMS operations, and platform configuration; part of a stack deployed on Linux VPS.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">MySQL</span>
-                                    <span class="tech-tag">Blade</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/vll-admin.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui enterprise">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/vll-sms.jpg" alt="VLL SMS customer portal login" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>VLL SMS — Victoria Lush company portal</h3>
-                                    <span class="portfolio-category">Laravel · company portal</span>
-                                </div>
-                                <p class="portfolio-description">Customer-facing company portal for Victoria Lush Limited — SMS campaigns, contacts, templates, and delivery history; hosted on production Linux VPS.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">Company portal</span>
-                                    <span class="tech-tag">Linux VPS</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/vll-sms.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui enterprise">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/smsver1-admin.jpg" alt="SMS Ver 1 administrator console for Victoria Lush" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>SMS Ver 1 — administrator</h3>
-                                    <span class="portfolio-category">PHP · SmSver1 stack</span>
-                                </div>
-                                <p class="portfolio-description">Legacy SMS admin console — agents, resellers, pricing schemes, and credit allocation for the Victoria Lush SMS ecosystem.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">PHP</span>
-                                    <span class="tech-tag">MySQL</span>
-                                    <span class="tech-tag">SMPP</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/smsver1-admin.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <img src="images/projects/school-receipt.jpg" alt="School receipt and tracking system Laravel project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>School receipt &amp; tracking</h3>
-                                    <span class="portfolio-category">Laravel · Blade</span>
-                                </div>
-                                <p class="portfolio-description">Laravel app for school-side receipts, reminders, and asset tracking workflows (actively updated on GitHub).</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">Laravel</span>
-                                    <span class="tech-tag">Blade</span>
-                                    <span class="tech-tag">MySQL</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/school-receipt.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://github.com/SarahGordon895/school_receipt_system" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui enterprise">
-                    <div class="portfolio-image">
-                        <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/elsm-live.jpg" alt="iMartGroup Leave System employee and administrator portals" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/elsm-live.jpg" alt="iMartGroup Leave System employee and administrator portals" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>iMartGroup Leave System (ELMS)</h3>
@@ -1314,67 +1107,18 @@
                                     <span class="tech-tag">Blade</span>
                                     <span class="tech-tag">HR workflow</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/elsm-live.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://leave.imartgroup.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live leave system"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/SarahGordon895/elsm_laravel" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/elsm-live.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://leave.imartgroup.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live leave system"><span>Live</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/elsm_laravel" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <img src="images/projects/restaurant-mgt.jpg" alt="Restaurant management system" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>Restaurant management</h3>
-                                    <span class="portfolio-category">JavaScript app repo</span>
-                                </div>
-                                <p class="portfolio-description">Full restaurant management codebase — orders, floor, and operations-oriented UI (see repo for stack details).</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">Git</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/restaurant-mgt.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://github.com/SarahGordon895/restaurant-mgt" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui">
-                    <div class="portfolio-image">
-                        <img src="images/projects/library-system.jpg" alt="Library management system PHP project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-content">
-                                <div class="portfolio-header">
-                                    <h3>Library management system</h3>
-                                    <span class="portfolio-category">PHP</span>
-                                </div>
-                                <p class="portfolio-description">Catalogue, lending, and admin flows for libraries — structured PHP project on GitHub.</p>
-                                <div class="portfolio-tech">
-                                    <span class="tech-tag">PHP</span>
-                                    <span class="tech-tag">MySQL</span>
-                                </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/library-system.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://github.com/SarahGordon895/Library_system" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ui enterprise">
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--live">Live</span>
-                        <img src="images/projects/lipapay-sandbox.jpg" alt="LipaPay sandbox developer hub at iMartGroup" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <img src="images/projects/lipapay-sandbox.jpg" alt="LipaPay sandbox developer hub at iMartGroup" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>LipaPay sandbox — iMartGroup</h3>
@@ -1386,20 +1130,251 @@
                                     <span class="tech-tag">REST APIs</span>
                                     <span class="tech-tag">Shared hosting</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/lipapay-sandbox.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://github.com/SarahGordon895/Sandbox_LipaPay" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="https://sandbox.lipapay.co.tz/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live sandbox"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Discuss integrations"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/lipapay-sandbox.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/Sandbox_LipaPay" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--live" href="https://sandbox.lipapay.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="Live sandbox"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Discuss integrations"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui">
+                </div>
+            </div>
+
+            <div class="work-group" data-group="enterprise">
+                <div class="work-group__head">
+                    <p class="work-group__kicker">02 — Enterprise</p>
+                    <h3 class="work-group__title">Platforms &amp; operations</h3>
+                    <p class="work-group__lead">Client platforms delivered end-to-end — SMS stacks, school systems, and admin consoles.</p>
+                </div>
+                <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="ui enterprise">
                     <div class="portfolio-image">
-                        <img src="images/projects/udsm-cafe.jpg" alt="UDSM Cafe HTML project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--local">Local demo</span>
+                        <img src="images/projects/fee-tracking.jpg" alt="Fee Tracking and Reminder System login for Mbonea Secondary School" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Fee Tracking &amp; Reminder (FTRS)</h3>
+                                    <span class="portfolio-category">Laravel · schools</span>
+                                </div>
+                                <p class="portfolio-description">Mbonea Secondary School — staff portal to track fees, record payments, issue receipts, and send parent reminders from one secure Laravel system.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">Receipts</span>
+                                    <span class="tech-tag">Reminders</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/fee-tracking.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--local">Local demo</span>
+                        <img src="images/projects/cakezone.jpg" alt="CakeZone bakery admin panel built with Laravel and Filament" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>CakeZone — bakery admin</h3>
+                                    <span class="portfolio-category">Laravel · Filament</span>
+                                </div>
+                                <p class="portfolio-description">Shop management for cakes and orders — catalog, customers, and an admin panel built with Filament on Laravel.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">Filament</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/cakezone.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a local walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui enterprise">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+
+                        <img src="images/projects/vll-admin.jpg" alt="VLL Admin dashboard login for Victoria Lush Limited" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>VLL Admin — Victoria Lush</h3>
+                                    <span class="portfolio-category">Laravel · enterprise SMS</span>
+                                </div>
+                                <p class="portfolio-description">Central admin for Victoria Lush Limited — user management, SMS operations, and platform configuration; part of a stack deployed on Linux VPS.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">Blade</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/vll-admin.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui enterprise">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+                        <img src="images/projects/vll-sms.jpg" alt="VLL SMS customer portal login" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>VLL SMS — Victoria Lush company portal</h3>
+                                    <span class="portfolio-category">Laravel · company portal</span>
+                                </div>
+                                <p class="portfolio-description">Customer-facing company portal for Victoria Lush Limited — SMS campaigns, contacts, templates, and delivery history; hosted on production Linux VPS.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">Company portal</span>
+                                    <span class="tech-tag">Linux VPS</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/vll-sms.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui enterprise">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+                        <img src="images/projects/smsver1-admin.jpg" alt="SMS Ver 1 administrator console for Victoria Lush" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>SMS Ver 1 — administrator</h3>
+                                    <span class="portfolio-category">PHP · SmSver1 stack</span>
+                                </div>
+                                <p class="portfolio-description">Legacy SMS admin console — agents, resellers, pricing schemes, and credit allocation for the Victoria Lush SMS ecosystem.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">SMPP</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/smsver1-admin.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="work-group" data-group="systems">
+                <div class="work-group__head">
+                    <p class="work-group__kicker">03 — Builds</p>
+                    <h3 class="work-group__title">Products & open source</h3>
+                    <p class="work-group__lead">Public repositories and product sites — code you can review, demos you can open.</p>
+                </div>
+                <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+                        <img src="images/projects/portfolio-site.jpg" alt="Sarah Gordon portfolio website on GitHub Pages" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Portfolio site (this project)</h3>
+                                    <span class="portfolio-category">GitHub Pages · public repo</span>
+                                </div>
+                                <p class="portfolio-description">Personal brand site — responsive layout, accessible navigation, and static hosting you can fork.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">HTML/CSS/JS</span>
+                                    <span class="tech-tag">GitHub Pages</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/portfolio-site.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Live site"><span>Live</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/sarahgordon.github.io" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+                        <img src="images/projects/techmorah.jpg" alt="TechMorah company site" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>TechMorah — company presence</h3>
+                                    <span class="portfolio-category">HTML · CSS · JS · Laravel</span>
+                                </div>
+                                <p class="portfolio-description">TechMorah Solution LTD — corporate site with case studies, contact, and AI chat; GitHub Pages build plus Laravel source for backend and client services.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">HTML/CSS/JS</span>
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">GitHub Pages</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/techmorah.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://sarahgordon895.github.io/TechMorah/" target="_blank" rel="noopener noreferrer" aria-label="Live site"><span>Live</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/TechMorah" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--code">Source</span>
+                        <img src="images/projects/school-receipt.jpg" alt="School receipt and tracking system Laravel project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>School receipt &amp; tracking</h3>
+                                    <span class="portfolio-category">Laravel · Blade</span>
+                                </div>
+                                <p class="portfolio-description">Laravel app for school-side receipts, reminders, and asset tracking workflows (actively updated on GitHub).</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Laravel</span>
+                                    <span class="tech-tag">Blade</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/school-receipt.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/school_receipt_system" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--code">Source</span>
+                        <img src="images/projects/restaurant-mgt.jpg" alt="Restaurant management system" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Restaurant management</h3>
+                                    <span class="portfolio-category">JavaScript app repo</span>
+                                </div>
+                                <p class="portfolio-description">Full restaurant management codebase — orders, floor, and operations-oriented UI (see repo for stack details).</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Git</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/restaurant-mgt.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/restaurant-mgt" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--code">Source</span>
+                        <img src="images/projects/library-system.jpg" alt="Library management system PHP project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Library management system</h3>
+                                    <span class="portfolio-category">PHP</span>
+                                </div>
+                                <p class="portfolio-description">Catalogue, lending, and admin flows for libraries — structured PHP project on GitHub.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/library-system.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/Library_system" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--code">Source</span>
+                        <img src="images/projects/udsm-cafe.jpg" alt="UDSM Cafe HTML project" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>UDSM Café — campus microsite</h3>
@@ -1410,19 +1385,17 @@
                                     <span class="tech-tag">HTML</span>
                                     <span class="tech-tag">CSS</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/udsm-cafe.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://github.com/SarahGordon895/Project-1" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Request a walkthrough"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/udsm-cafe.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/Project-1" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Request a walkthrough"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="ui">
+                <div class="portfolio-item work-card" data-category="ui">
                     <div class="portfolio-image">
-                        <img src="images/projects/portfolio-archive.jpg" alt="Earlier portfolio GitHub Pages build" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--code">Source</span>
+                        <img src="images/projects/portfolio-archive.jpg" alt="Earlier portfolio GitHub Pages build" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Earlier portfolio (archive)</h3>
@@ -1433,19 +1406,27 @@
                                     <span class="tech-tag">JavaScript</span>
                                     <span class="tech-tag">GitHub Pages</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/portfolio-archive.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="https://sarahgordon895.github.io/My-Portfolio/" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Live archive site"><i class="fas fa-external-link-alt"></i></a>
-                                    <a href="https://github.com/SarahGordon895/My-Portfolio" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/portfolio-archive.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://sarahgordon895.github.io/My-Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Live archive site"><span>Live</span></a>
+                                    <a class="work-action work-action--source" href="https://github.com/SarahGordon895/My-Portfolio" target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"><span>Source</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="graphic">
+                </div>
+            </div>
+
+            <div class="work-group" data-group="brand">
+                <div class="work-group__head">
+                    <p class="work-group__kicker">04 — Design</p>
+                    <h3 class="work-group__title">Brand & visual identity</h3>
+                    <p class="work-group__lead">Identity systems, marks, and campaign creatives for screen and print.</p>
+                </div>
+                <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="graphic">
                     <div class="portfolio-image">
-                        <img src="images/projects/brand-identity.jpg" alt="Brand identity design work" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/brand-identity.jpg" alt="Brand identity design work" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Brand identity suite</h3>
@@ -1456,18 +1437,16 @@
                                     <span class="tech-tag">Branding</span>
                                     <span class="tech-tag">Layout</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/brand-identity.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Commission similar work"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/brand-identity.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Commission similar work"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="graphic">
+                <div class="portfolio-item work-card" data-category="graphic">
                     <div class="portfolio-image">
-                        <img src="images/projects/logo-design.jpg" alt="Logo design work" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/logo-design.jpg" alt="Logo design work" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Logo &amp; mark design</h3>
@@ -1478,18 +1457,16 @@
                                     <span class="tech-tag">Logo</span>
                                     <span class="tech-tag">Vector</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/logo-design.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Commission similar work"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/logo-design.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Commission similar work"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="graphic">
+                <div class="portfolio-item work-card" data-category="graphic">
                     <div class="portfolio-image">
-                        <img src="images/projects/barberian-cargo.jpg" alt="Barberian World Cargo branding" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/barberian-cargo.jpg" alt="Barberian World Cargo branding" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Barberian World Cargo</h3>
@@ -1500,18 +1477,16 @@
                                     <span class="tech-tag">Brand</span>
                                     <span class="tech-tag">Campaign</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/barberian-cargo.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Commission similar work"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/barberian-cargo.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Commission similar work"><span>Discuss</span></a></div>
+                </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="graphic">
+                <div class="portfolio-item work-card" data-category="graphic">
                     <div class="portfolio-image">
-                        <img src="images/projects/marketing-promo.jpg" alt="Marketing and promotional design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600">
-                        <div class="portfolio-overlay">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/marketing-promo.jpg" alt="Marketing and promotional design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
                             <div class="portfolio-content">
                                 <div class="portfolio-header">
                                     <h3>Marketing &amp; promo design</h3>
@@ -1522,13 +1497,11 @@
                                     <span class="tech-tag">Posters</span>
                                     <span class="tech-tag">Social</span>
                                 </div>
-                                <div class="portfolio-links">
-                                    <a href="images/projects/marketing-promo.jpg" class="portfolio-lightbox" data-lightbox="portfolio" aria-label="Preview image"><i class="fas fa-expand"></i></a>
-                                    <a href="#contact" class="portfolio-link portfolio-cta" aria-label="Commission similar work"><i class="fas fa-comments"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/marketing-promo.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="#contact" aria-label="Commission similar work"><span>Discuss</span></a></div>
+                </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -1665,6 +1638,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="js/script.js?v=20260813a"></script>
+    <script src="js/script.js?v=20260813b"></script>
 </body>
 </html>
