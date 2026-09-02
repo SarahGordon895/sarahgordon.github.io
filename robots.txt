@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Portfolio of Sarah George Gordon — also see TechMorah Solution LTD
 Sitemap: https://sarah-gordon.org/sitemap.xml
