@@ -21,7 +21,7 @@
     <meta name="twitter:title" content="Sarah Gordon — Full Stack, Support &amp; Implementation, Graphic Design">
     <meta name="twitter:description" content="Full stack development, support &amp; implementation, UI/UX, and graphic design — explore shipped work.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=20260901a">
+    <link rel="stylesheet" href="css/style.css?v=20260902a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -142,7 +142,7 @@
         <div class="container">
             <p class="page-banner__kicker">Case portfolio</p>
             <h1 class="page-banner__title">Selected work</h1>
-            <p class="page-banner__lead">Production systems and brand engagements — live products first.</p>
+            <p class="page-banner__lead">Corporate case portfolio — live software, enterprise implementation, brand &amp; graphic design, and professional documents.</p>
         </div>
     </header>
     <!-- Portfolio Section -->
@@ -156,13 +156,16 @@
                     <button type="button" class="filter-btn" data-filter="live" aria-pressed="false">Live products</button>
                     <button type="button" class="filter-btn" data-filter="ui" aria-pressed="false">Apps &amp; systems</button>
                     <button type="button" class="filter-btn" data-filter="enterprise" aria-pressed="false">Enterprise</button>
-                    <button type="button" class="filter-btn" data-filter="graphic" aria-pressed="false">Brand &amp; UI</button>
+                    <button type="button" class="filter-btn" data-filter="implementation" aria-pressed="false">Implementation</button>
+                    <button type="button" class="filter-btn" data-filter="graphic" aria-pressed="false">Design &amp; graphics</button>
+                    <button type="button" class="filter-btn" data-filter="docs" aria-pressed="false">Documents</button>
                 </div>
                 <div class="work-legend" aria-label="Status key">
                     <span class="work-legend__item"><span class="status-pill status-pill--live">Live</span> Deployed</span>
                     <span class="work-legend__item"><span class="status-pill status-pill--code">Source</span> Repository</span>
                     <span class="work-legend__item"><span class="status-pill status-pill--local">Local</span> Private demo</span>
                     <span class="work-legend__item"><span class="status-pill status-pill--brand">Brand</span> Design</span>
+                    <span class="work-legend__item"><span class="status-pill status-pill--docs">Docs</span> Proposal / report</span>
                 </div>
                 <p class="portfolio-repo-note">Previews are real UI captures. Open <strong>Live</strong> for the deployed product or <strong>Source</strong> for the GitHub repository. <a href="https://github.com/SarahGordon895?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories</a></p>
                 <p class="work-count" id="workCount" aria-live="polite"></p>
@@ -194,6 +197,28 @@
                                 <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/active-targets.jpg" data-lightbox="portfolio" aria-label="Preview storefront"><span>Preview</span></a>
                                     <a class="work-action work-action--live" href="https://activetargets.org/" target="_blank" rel="noopener noreferrer" aria-label="Live site"><span>Live</span></a>
                                     <a class="work-action work-action--discuss" href="contact.html" aria-label="Discuss a similar build"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="ui enterprise live">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Live</span>
+                        <img src="images/projects/active-targets-admin.jpg" alt="Active Targets Filament admin panel" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Active Targets — Filament admin</h3>
+                                    <span class="portfolio-category">Laravel · Filament · ops</span>
+                                </div>
+                                <p class="portfolio-description">Production admin for orders, products, coupons, CMS, and shop configuration — paired with the public storefront at activetargets.org.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Filament</span>
+                                    <span class="tech-tag">Admin</span>
+                                    <span class="tech-tag">E-commerce</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/active-targets-admin.jpg" data-lightbox="portfolio" aria-label="Preview admin"><span>Preview</span></a>
+                                    <a class="work-action work-action--live" href="https://activetargets.org/admin" target="_blank" rel="noopener noreferrer" aria-label="Live admin"><span>Live</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Discuss admin build"><span>Discuss</span></a></div>
                 </div>
                     </div>
                 </div>
@@ -381,10 +406,30 @@
             <div class="work-group" data-group="enterprise">
                 <div class="work-group__head">
                     <p class="work-group__kicker">02 — Enterprise</p>
-                    <h3 class="work-group__title">Platforms &amp; operations</h3>
-                    <p class="work-group__lead">Client platforms delivered end-to-end — SMS stacks, school systems, and admin consoles.</p>
+                    <h3 class="work-group__title">Platforms, banking &amp; operations</h3>
+                    <p class="work-group__lead">Client platforms and implementation — SMS stacks, school systems, CBS support, and admin consoles.</p>
                 </div>
                 <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="enterprise implementation">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--live">Implementation</span>
+                        <img src="images/projects/lipapay-portal.jpg" alt="Craft Silicon banking support and implementation work" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Craft Silicon — CBS support &amp; implementation</h3>
+                                    <span class="portfolio-category">Banking · SQL Server · SSRS</span>
+                                </div>
+                                <p class="portfolio-description">Part-time contract (May–Aug 2026): production support for Core Banking clients — Mobile/Internet/Agency Banking, REST APIs, T-SQL procedures, SQL Profiler diagnostics, SSRS reports, GL mapping, Windows Server/IIS, and structured root-cause documentation.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">SQL Server</span>
+                                    <span class="tech-tag">SSRS</span>
+                                    <span class="tech-tag">Banking APIs</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--discuss" href="contact.html" aria-label="Discuss implementation support"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
                 <div class="portfolio-item work-card" data-category="ui enterprise">
                     <div class="portfolio-image">
                         <span class="status-pill status-pill--local">Local demo</span>
@@ -656,8 +701,8 @@
             <div class="work-group" data-group="brand">
                 <div class="work-group__head">
                     <p class="work-group__kicker">04 — Design</p>
-                    <h3 class="work-group__title">Brand & visual identity</h3>
-                    <p class="work-group__lead">Identity systems, marks, and campaign creatives for screen and print.</p>
+                    <h3 class="work-group__title">Brand, graphics &amp; creative</h3>
+                    <p class="work-group__lead">Identity systems, logos, posters, social creatives, presentations, and campaign artwork for screen and print.</p>
                 </div>
                 <div class="portfolio-grid">
                 <div class="portfolio-item work-card" data-category="graphic">
@@ -737,6 +782,215 @@
                                 </div>
                                 <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/marketing-promo.jpg" data-lightbox="portfolio" aria-label="Preview image"><span>Preview</span></a>
                                     <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission similar work"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-poster.jpg" alt="Poster and promotional design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Posters &amp; promotional design</h3>
+                                    <span class="portfolio-category">Print · events · offers</span>
+                                </div>
+                                <p class="portfolio-description">Event posters, launch creatives, and promotional layouts with strong typography and hierarchy for print and large-format display.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Posters</span>
+                                    <span class="tech-tag">Print</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-poster.jpg" data-lightbox="portfolio" aria-label="Preview poster"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission poster design"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-brand-board.jpg" alt="Brand board and identity design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Brand boards &amp; identity kits</h3>
+                                    <span class="portfolio-category">Colour · type · applications</span>
+                                </div>
+                                <p class="portfolio-description">Corporate brand boards showing logo usage, colour palettes, typography, and application examples across digital and print touchpoints.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Brand kit</span>
+                                    <span class="tech-tag">Guidelines</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-brand-board.jpg" data-lightbox="portfolio" aria-label="Preview brand board"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission brand work"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-campaign.jpg" alt="Marketing campaign creative design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Campaign &amp; marketing creatives</h3>
+                                    <span class="portfolio-category">Launches · offers · ads</span>
+                                </div>
+                                <p class="portfolio-description">Multi-asset campaign sets for product launches, seasonal offers, and client promotions — consistent across channels.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Campaign</span>
+                                    <span class="tech-tag">Marketing</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-campaign.jpg" data-lightbox="portfolio" aria-label="Preview campaign"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission campaign design"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-social.jpg" alt="Social media graphic design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Social media graphics</h3>
+                                    <span class="portfolio-category">Instagram · Facebook · feeds</span>
+                                </div>
+                                <p class="portfolio-description">Feed posts, story templates, and social banners sized and branded for Instagram, Facebook, and WhatsApp business channels.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Social</span>
+                                    <span class="tech-tag">Digital</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-social.jpg" data-lightbox="portfolio" aria-label="Preview social graphics"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission social design"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-print.jpg" alt="Print design and collateral" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Print &amp; collateral design</h3>
+                                    <span class="portfolio-category">Flyers · brochures · stationery</span>
+                                </div>
+                                <p class="portfolio-description">Print-ready flyers, brochures, business cards, and stationery — bleed, colour, and layout tuned for professional production.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Print</span>
+                                    <span class="tech-tag">Collateral</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-print.jpg" data-lightbox="portfolio" aria-label="Preview print design"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission print design"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="graphic docs">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--brand">Brand</span>
+                        <img src="images/projects/creative-presentation.jpg" alt="Presentation and slide design" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Presentations &amp; slide decks</h3>
+                                    <span class="portfolio-category">Pitch · corporate · training</span>
+                                </div>
+                                <p class="portfolio-description">Corporate slide decks, pitch presentations, and training materials with consistent visual language and readable information hierarchy.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Slides</span>
+                                    <span class="tech-tag">Pitch</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--preview portfolio-lightbox" href="images/projects/creative-presentation.jpg" data-lightbox="portfolio" aria-label="Preview presentation"><span>Preview</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Commission presentation design"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="work-group" data-group="documents">
+                <div class="work-group__head">
+                    <p class="work-group__kicker">05 — Documents</p>
+                    <h3 class="work-group__title">Proposals, reports &amp; handover</h3>
+                    <p class="work-group__lead">Professional documents for sponsors, clients, and operations — proposals, reports, specs, and runbooks.</p>
+                </div>
+                <div class="portfolio-grid">
+                <div class="portfolio-item work-card" data-category="docs">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--docs">Proposal</span>
+                        <img src="images/projects/brand-identity.jpg" alt="AI ML sponsorship proposal document" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>AI/ML degree — sponsorship proposal</h3>
+                                    <span class="portfolio-category">Proposal · academic · 2027 intake</span>
+                                </div>
+                                <p class="portfolio-description">Formal sponsorship proposal document for Bachelor's degree in Artificial Intelligence &amp; Machine Learning — structured narrative, credentials, and ask.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Proposal</span>
+                                    <span class="tech-tag">PDF</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--live" href="documents/Sarah-Gordon-AI-ML-Sponsorship-Proposal.html" target="_blank" rel="noopener noreferrer" aria-label="View proposal"><span>View</span></a>
+                                    <a class="work-action work-action--source" href="documents/Sarah-Gordon-AI-ML-Sponsorship-Proposal.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download PDF"><span>PDF</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="docs implementation">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--docs">Report</span>
+                        <img src="images/projects/lipapay-sandbox.jpg" alt="Technical integration documentation" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>LipaPay — integration specs &amp; runbooks</h3>
+                                    <span class="portfolio-category">API docs · handover · KYC specs</span>
+                                </div>
+                                <p class="portfolio-description">Portal integration specifications, developer sandbox documentation, deployment runbooks, and handover guides for the LipaPay product family at iMart Group.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">Runbooks</span>
+                                    <span class="tech-tag">API specs</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--live" href="https://sandbox.lipapay.co.tz/" target="_blank" rel="noopener noreferrer" aria-label="View sandbox"><span>Sandbox</span></a>
+                                    <a class="work-action work-action--discuss" href="contact.html" aria-label="Discuss documentation"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="docs implementation enterprise">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--docs">Report</span>
+                        <img src="images/projects/vll-admin.jpg" alt="SSRS and banking reports documentation" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>SSRS reports &amp; banking documentation</h3>
+                                    <span class="portfolio-category">Craft Silicon · GL · Trial Balance</span>
+                                </div>
+                                <p class="portfolio-description">Structured incident reports, SSRS report validation, GL statement checks, and root-cause documentation for banking channel support engagements.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">SSRS</span>
+                                    <span class="tech-tag">T-SQL</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--discuss" href="contact.html" aria-label="Discuss report work"><span>Discuss</span></a></div>
+                </div>
+                    </div>
+                </div>
+                <div class="portfolio-item work-card" data-category="docs">
+                    <div class="portfolio-image">
+                        <span class="status-pill status-pill--docs">CV</span>
+                        <img src="images/projects/portfolio-site.jpg" alt="Professional CV and corporate profile" class="portfolio-img" loading="lazy" decoding="async" width="800" height="600"></div>
+                    <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <div class="portfolio-header">
+                                    <h3>Corporate CV &amp; professional profile</h3>
+                                    <span class="portfolio-category">CV · credentials · portfolio</span>
+                                </div>
+                                <p class="portfolio-description">Full professional CV covering development, design, implementation, and project history — available online and as downloadable PDF.</p>
+                                <div class="portfolio-tech">
+                                    <span class="tech-tag">CV</span>
+                                    <span class="tech-tag">Profile</span>
+                                </div>
+                                <div class="work-actions"><a class="work-action work-action--live" href="cv/Sarah_Gordon_CV_2026.html" target="_blank" rel="noopener noreferrer" aria-label="View CV"><span>View CV</span></a>
+                                    <a class="work-action work-action--source" href="CvsarahG.pdf" download="Sarah_Gordon_CV_2026.pdf" aria-label="Download CV PDF"><span>PDF</span></a></div>
                 </div>
                     </div>
                 </div>

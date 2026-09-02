@@ -569,9 +569,12 @@ section {
 }
 .about-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .about-stats { grid-template-columns: repeat(4, 1fr); }
 }
 .stat-item {
   background: var(--paper);
@@ -1000,6 +1003,7 @@ section {
 .status-pill--code { background: var(--navy-2); }
 .status-pill--local { background: #8a6a2f; }
 .status-pill--brand { background: var(--copper); }
+.status-pill--docs { background: #4a5d73; }
 .portfolio-legend { white-space: nowrap; }
 
 /* Contact */
@@ -1553,4 +1557,63 @@ section {
 @media (min-width: 1024px) {
   .home-next-grid { grid-template-columns: repeat(3, 1fr); }
   .home-next-card--accent { grid-column: span 1; }
+}
+
+/* Corporate practice areas — home */
+.practice-areas {
+  padding: 48px 0 56px;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.practice-areas__lead {
+  margin: 0 0 24px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.practice-grid {
+  display: grid;
+  gap: 16px;
+}
+.practice-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 22px 20px;
+  transition: box-shadow 0.3s var(--ease-out), border-color 0.3s;
+}
+.practice-card:hover {
+  border-color: rgba(31, 138, 122, 0.35);
+  box-shadow: var(--shadow);
+}
+.practice-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1rem;
+}
+.practice-card h2 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+.practice-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+@media (min-width: 768px) {
+  .practice-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .practice-grid { grid-template-columns: repeat(4, 1fr); }
 }
