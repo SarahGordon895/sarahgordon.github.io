@@ -29,7 +29,7 @@
     <meta property="og:image:height" content="1024">
     <link rel="alternate" href="https://techmorahsolutionltd.org/" title="TechMorah Solution LTD">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=20260902a">
+    <link rel="stylesheet" href="css/style.css?v=20260903a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -42,28 +42,119 @@
     {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://sarah-gordon.org/#person",
         "name": "Sarah George Gordon",
-        "alternateName": ["Sarah Gordon"],
+        "alternateName": ["Sarah Gordon", "Sarah G. Gordon"],
         "url": "https://sarah-gordon.org/",
-        "image": "https://sarah-gordon.org/images/profile.jpg?v=20260821a",
-        "jobTitle": ["Full Stack Developer", "Support & Implementation Engineer", "Graphic Designer", "UI/UX Designer"],
-        "email": "gordonsarah2404@gmail.com",
+        "mainEntityOfPage": {
+            "@type": "ProfilePage",
+            "@id": "https://sarah-gordon.org/#profile",
+            "url": "https://sarah-gordon.org/",
+            "name": "About Sarah George Gordon",
+            "isPartOf": {"@id": "https://sarah-gordon.org/#website"}
+        },
+        "image": [
+            {
+                "@type": "ImageObject",
+                "url": "https://sarah-gordon.org/images/profile-kg.jpg",
+                "contentUrl": "https://sarah-gordon.org/images/profile-kg.jpg",
+                "caption": "Sarah George Gordon, full stack developer and graphic designer in Dar es Salaam",
+                "width": 1200,
+                "height": 1200
+            },
+            {
+                "@type": "ImageObject",
+                "url": "https://sarah-gordon.org/images/profile-official.jpg",
+                "contentUrl": "https://sarah-gordon.org/images/profile-official.jpg",
+                "caption": "Official portrait of Sarah George Gordon",
+                "width": 768,
+                "height": 1024
+            }
+        ],
+        "jobTitle": [
+            "Full Stack Developer",
+            "Support & Implementation Engineer",
+            "Graphic Designer",
+            "UI/UX Designer",
+            "Cofounder"
+        ],
+        "description": "Sarah George Gordon (Sarah Gordon) is a full stack developer, graphic designer, and implementation engineer based in Dar es Salaam, Tanzania. She builds Laravel, Flutter, Java/Spring Boot, and React systems, creates logos, posters, proposals, and presentations, and cofounded TechMorah Solution LTD.",
+        "email": "mailto:gordonsarah2404@gmail.com",
         "telephone": "+255655139724",
+        "nationality": {"@type": "Country", "name": "Tanzania"},
+        "homeLocation": {
+            "@type": "Place",
+            "name": "Dar es Salaam",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dar es Salaam",
+                "addressCountry": "TZ"
+            }
+        },
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Dar es Salaam",
             "addressCountry": "TZ"
         },
         "worksFor": [
-            {"@type": "Organization", "name": "iMart Group LTD"},
-            {"@type": "Organization", "name": "TechMorah Solution LTD", "url": "https://techmorahsolutionltd.org/"}
+            {
+                "@type": "Organization",
+                "name": "iMart Group LTD",
+                "jobTitle": "Full Stack Developer"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://techmorahsolutionltd.org/#organization",
+                "name": "TechMorah Solution LTD",
+                "url": "https://techmorahsolutionltd.org/",
+                "logo": "https://techmorahsolutionltd.org/img/techmorah-logo-kg.png"
+            }
         ],
+        "founder": {
+            "@type": "Organization",
+            "@id": "https://techmorahsolutionltd.org/#organization",
+            "name": "TechMorah Solution LTD",
+            "url": "https://techmorahsolutionltd.org/"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Dar es Salaam",
+            "url": "https://www.udsm.ac.tz/"
+        },
         "sameAs": [
+            "https://sarah-gordon.org/",
+            "https://sarah-gordon.org/about.html",
+            "https://techmorahsolutionltd.org/",
             "https://github.com/SarahGordon895",
             "https://www.linkedin.com/in/sarah-gordon-0502b335b",
-            "https://techmorahsolutionltd.org/"
+            "https://www.instagram.com/techmorahsolution_ltd"
         ],
-        "knowsAbout": ["Laravel", "Filament", "React", "Next.js", "PHP", "JavaScript", "Go", "Spring Boot", "Java", "Dart", "Flutter", "REST APIs", "MySQL", "Microsoft SQL Server", "Microsoft Access", "SQL Profiler", "Windows Server", "Linux Server", "IIS", "E-commerce", "SMS platforms", "Payment APIs", "Support & implementation", "UI/UX design", "Brand & print design"]
+        "knowsAbout": [
+            "Full stack development",
+            "Laravel",
+            "Flutter",
+            "Java",
+            "Spring Boot",
+            "React",
+            "Next.js",
+            "Graphic design",
+            "Logo design",
+            "Brand identity",
+            "UI/UX design",
+            "Payment systems",
+            "SMS platforms",
+            "Support and implementation",
+            "TechMorah Solution LTD"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Full Stack Developer",
+            "occupationLocation": {
+                "@type": "City",
+                "name": "Dar es Salaam"
+            },
+            "skills": "Laravel, Flutter, Java, React, graphic design, implementation"
+        }
     }
     </script>
     <script type="application/ld+json">

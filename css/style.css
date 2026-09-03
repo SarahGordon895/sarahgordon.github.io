@@ -1617,3 +1617,65 @@ section {
 @media (min-width: 1024px) {
   .practice-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* Knowledge / entity profile block */
+.entity-profile {
+  padding: 48px 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.entity-profile__grid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+.entity-profile__photo {
+  width: min(280px, 70%);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px 24px 4px 24px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+}
+.entity-profile__kicker {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.entity-profile__copy h2 {
+  margin: 0 0 4px;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--navy);
+}
+.entity-profile__aka {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.entity-profile__copy p {
+  margin: 0 0 12px;
+  color: var(--ink);
+  max-width: 54ch;
+}
+.entity-profile__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 8px;
+}
+.entity-profile__links a {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+  .entity-profile__grid {
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+  }
+  .entity-profile__photo { margin: 0; width: 280px; }
+}
