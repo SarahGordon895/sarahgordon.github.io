@@ -113,6 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 991) closeMobileNav();
+    });
+
     // Active navigation — multi-page uses data-page; fallback scroll spy only on home one-pager leftovers
     function updateActiveNavLink() {
         const page = document.body.getAttribute('data-page');
@@ -837,7 +841,7 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.25s ease, visibility 0.25s ease;
-            padding: 24px;
+            padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
         }
         .sg-lightbox.active {
             opacity: 1;
